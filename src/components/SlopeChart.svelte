@@ -1,5 +1,7 @@
 <script>
   import SlopeChartMarker from "$components/SlopeChartMarker.svelte";
+  import SlopeChartLine from "$components/SlopeChartLine.svelte";
+  import { end_hydrating } from "svelte/internal";
 
   export let lines;
   export let w;
@@ -10,14 +12,31 @@
   $: width = w + padding.r + padding.l;
   $: height = h + padding.t + padding.b;
 
-  const labelsPadding = 5;
-  const labels = lines.slice();
+  const labelPadding = 5;
+  let showTooltip = false;
+  let tooltip = {};
+  let tooltipTranslate = `transform: translateY(0);`;
 
-  shiftLabels.shift.forEach(shiftLbl => {
-    const lbl = labels.find(el => el[shiftLabels.key] === shiftLbl[0]);
+  // shifted labels will have `lblPos` property
+  shiftLabels.shift.forEach((shiftLbl) => {
+    const lbl = lines.find((el) => el[shiftLabels.key] === shiftLbl[0]);
     lbl.lblPos = lbl.y2 + shiftLbl[1];
-  })
+  });
 
+  const handleLineEnter = function (e) {
+    console.log("lineEnter", e);
+    showTooltip = true;
+    tooltip.country = e.detail.country;
+    tooltip.value = e.detail.value;
+    tooltip.pctChange = e.detail.pctChange;
+    tooltipTranslate = `transform: translate(${e.detail.mouseX - 25}px, ${
+      e.detail.mouseY + 25
+    }px);`;
+  };
+
+  const handleLineLeave = function (e) {
+    showTooltip = false;
+  };
 </script>
 
 <div class="chart">
@@ -28,29 +47,24 @@
     </defs>
 
     <g class="chart__lines" transform={`translate(${padding.l}, ${padding.t})`}>
-      {#each lines as { x1, x2, y1, y2, country, isActive }}
-        <line
-          {x1}
-          {x2}
-          {y1}
-          {y2}
-          id={country}
-          class:active={isActive}
-          marker-start={isActive ? "url(#dot-active)" : "url(#dot)"}
-          marker-end={isActive ? "url(#dot-active)" : "url(#dot)"}
+      {#each lines as line}
+        <SlopeChartLine
+          data={line}
+          {labelPadding}
+          on:lineEnter={handleLineEnter}
+          on:lineLeave={handleLineLeave}
         />
       {/each}
     </g>
-
-    <g
-      class="chart__labels"
-      transform={`translate(${padding.l + w + labelsPadding}, ${padding.t})`}
-    >
-      {#each labels as { lblPos, y2, country, isActive }}
-        <text y={lblPos || y2} class:active={isActive}>{country}</text>
-      {/each}
-    </g>
   </svg>
+
+  {#if showTooltip}
+    <div class="chart__tooltip" style={tooltipTranslate}>
+      <p>1991 🠒 2021</p>
+      <p>{tooltip.value}</p>
+      <p>{tooltip.pctChange}</p>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -59,29 +73,50 @@
     border: 1px solid black;
   }
 
-  .chart__lines {
+  :global(.chart__lines line) {
     stroke: #e0e0e0;
     stroke-width: 2px;
   }
 
-  .chart__lines .active {
+  :global(.chart__lines line.active) {
     stroke: #d50000;
   }
 
-  .chart__lines line {
-    cursor: pointer;
+  :global(.chart__lines line.hovered) {
+    filter: drop-shadow(0 0 2px #424242);
   }
 
-  .chart__labels {
+  :global(.chart__lines text) {
+    font-size: 1.25rem;
+    transform: translateY(3px);
     fill: #e0e0e0;
   }
 
-  .chart__labels .active {
+  :global(.chart__lines text.hovered) {
+    filter: drop-shadow(0 0 2px #424242);
+    fill: #fff;
+  }
+
+  :global(.chart__lines text.active) {
     fill: #d50000;
   }
 
-  .chart__labels text {
-    font-size: 1.25rem;
-    transform: translateY(2px);
+  :global(.chart__lines text.active.hovered) {
+    fill: #ff1744;
+  }
+
+  .chart {
+    position: relative;
+    display: inline-block;
+  }
+
+  .chart__tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(33, 33, 33, 0.7);
+    color: #fff;
+    width: 100px;
+    height: 75px;
   }
 </style>

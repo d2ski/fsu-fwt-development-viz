@@ -20,6 +20,7 @@
         let line = {
           country: rec[0].countryName,
           isActive: rec[0].group === activeGroup,
+          pctChange: rec[0].pctChange,
         };
 
         let [first, last] = rec[0].year < rec[1].year ? [0, 1] : [1, 0];
