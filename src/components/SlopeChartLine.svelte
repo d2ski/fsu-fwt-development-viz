@@ -11,7 +11,8 @@
     isHovered = true;
     dispatch("lineEnter", {
       country: data.country,
-      value: data.value,
+      value1: data.value1,
+      value2: data.value2,
       pctChange: data.pctChange,
       mouseX: e.offsetX,
       mouseY: e.offsetY,
