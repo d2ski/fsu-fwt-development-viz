@@ -76,8 +76,3 @@
   <SlopeChart lines={linesFWT} {w} {h} {padding} shiftLabels={shiftLabels} {ticksX} {ticksY} title="Former Warsaw Treaty"/>
 </section>
 
-<style>
-  section {
-    padding: 3rem 0;
-  }
-</style>
