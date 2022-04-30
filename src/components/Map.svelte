@@ -30,7 +30,7 @@
     style="stroke-width: {strokeWidth}px"
   >
     {#each data.features as rec}
-    <MapPath path={path(rec)} centroid={path.centroid(rec)} className={getClassName(rec.properties.group)}/>
+    <MapPath path={path(rec)} centroid={path.centroid(rec)} className={getClassName(rec.properties.group)} />
     {/each}
   </g>
 </svg>

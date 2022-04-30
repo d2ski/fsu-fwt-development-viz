@@ -6,15 +6,12 @@
   export let className = "";
 </script>
 
-<path
-  d={path}
-  class={className}
-/>
+<path d={path} class={className} />
 <text x={centroid[0]} y={centroid[1]}>Label</text>
 
 <style>
-    text {
-        text-anchor: middle;
-        font-size: 0.3rem;
-    }
+  text {
+    text-anchor: middle;
+    font-size: 0.3rem;
+  }
 </style>
