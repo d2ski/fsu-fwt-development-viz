@@ -1,17 +1,7 @@
 <script>
   export let path;
-  export let centroid;
-  export let isHoverable;
-  export let properties;
+  export let rec;
   export let className = "";
 </script>
 
-<path d={path} class={className} />
-<text x={centroid[0]} y={centroid[1]}>Label</text>
-
-<style>
-  text {
-    text-anchor: middle;
-    font-size: 0.3rem;
-  }
-</style>
+<path d={path(rec)} class={className} />

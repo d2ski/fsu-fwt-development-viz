@@ -19,11 +19,11 @@
 <Scroller top={0.05} bottom={0.8} bind:index bind:offset bind:progress>
   <div slot="background">
     {#if index === 0}
-      <div class="map-container" transition:blur={{ duration: 1500 }}>
+      <div class="map-container">
         <Map data={map1988} {width} {height} {scale} {rotate} {center} />
       </div>
     {:else if index === 1}
-      <div class="map-container" transition:blur={{ duration: 1500 }}>
+      <div class="map-container">
         <Map
           data={map1993}
           {width}
@@ -58,5 +58,6 @@
 
   section {
     height: 80vh;
+    font-size: 3.5rem;
   }
 </style>
