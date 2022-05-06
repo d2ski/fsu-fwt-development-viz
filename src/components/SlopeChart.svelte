@@ -6,7 +6,7 @@
   export let w;
   export let h;
   export let padding;
-  export let shiftLabels = [];
+  export let shiftLabels = {shift: []};
   export let ticksX;
   export let ticksY;
   export let title = "";

@@ -1,6 +1,7 @@
 <script>
-  import SectionGdp from "$components/SectionGDP.svelte";
   import SectionMap from "$components/SectionMap.svelte";
+  import SectionGdp from "$components/SectionGDP.svelte";
+  import SectionPopulation from "$components/SectionPopulation.svelte";
 </script>
 
 <h1>
@@ -10,3 +11,4 @@
 
 <SectionMap />
 <SectionGdp />
+<SectionPopulation />

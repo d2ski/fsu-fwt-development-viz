@@ -23,7 +23,7 @@
     fill: #212121;
     paint-order: stroke;
     stroke: #fff;
-    stroke-width: 1px;
+    stroke-width: 0.6px;
     font-weight: 600;
     transform-box: fill-box;
   }

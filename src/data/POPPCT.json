@@ -1,0 +1,212 @@
+[
+  {
+    "countryName": "Armenia",
+    "countryCode": "ARM",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "South Caucasus",
+    "year": 2020,
+    "value": 2963234.0,
+    "pctChange": -15.4629528459
+  },
+  {
+    "countryName": "Azerbaijan",
+    "countryCode": "AZE",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "South Caucasus",
+    "year": 2020,
+    "value": 10093121.0,
+    "pctChange": 38.8076547522
+  },
+  {
+    "countryName": "Bulgaria",
+    "countryCode": "BGR",
+    "indicatorCode": "POP_PCT",
+    "group": "FWT",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 6934015.0,
+    "pctChange": -19.6742330348
+  },
+  {
+    "countryName": "Belarus",
+    "countryCode": "BLR",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 9379952.0,
+    "pctChange": -7.9860114479
+  },
+  {
+    "countryName": "Czech Republic",
+    "countryCode": "CZE",
+    "indicatorCode": "POP_PCT",
+    "group": "FWT",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 10698896.0,
+    "pctChange": 3.7863418213
+  },
+  {
+    "countryName": "Estonia",
+    "countryCode": "EST",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU-B",
+    "region": "Baltic states",
+    "year": 2020,
+    "value": 1331057.0,
+    "pctChange": -14.7476420502
+  },
+  {
+    "countryName": "Georgia",
+    "countryCode": "GEO",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "South Caucasus",
+    "year": 2020,
+    "value": 3714000.0,
+    "pctChange": -23.1994044542
+  },
+  {
+    "countryName": "Hungary",
+    "countryCode": "HUN",
+    "indicatorCode": "POP_PCT",
+    "group": "FWT",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 9749763.0,
+    "pctChange": -6.0118861704
+  },
+  {
+    "countryName": "Kazakhstan",
+    "countryCode": "KAZ",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Central Asia",
+    "year": 2020,
+    "value": 18754440.0,
+    "pctChange": 13.9968967362
+  },
+  {
+    "countryName": "Kyrgyz Republic",
+    "countryCode": "KGZ",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Central Asia",
+    "year": 2020,
+    "value": 6591600.0,
+    "pctChange": 47.6745228067
+  },
+  {
+    "countryName": "Lithuania",
+    "countryCode": "LTU",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU-B",
+    "region": "Baltic states",
+    "year": 2020,
+    "value": 2794700.0,
+    "pctChange": -24.5518655643
+  },
+  {
+    "countryName": "Latvia",
+    "countryCode": "LVA",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU-B",
+    "region": "Baltic states",
+    "year": 2020,
+    "value": 1901548.0,
+    "pctChange": -28.25920053
+  },
+  {
+    "countryName": "Moldova",
+    "countryCode": "MDA",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 2620495.0,
+    "pctChange": -11.9316167275
+  },
+  {
+    "countryName": "Poland",
+    "countryCode": "POL",
+    "indicatorCode": "POP_PCT",
+    "group": "FWT",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 37950802.0,
+    "pctChange": -0.7723409229
+  },
+  {
+    "countryName": "Romania",
+    "countryCode": "ROU",
+    "indicatorCode": "POP_PCT",
+    "group": "FWT",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 19286123.0,
+    "pctChange": -16.1515019572
+  },
+  {
+    "countryName": "Russian Federation",
+    "countryCode": "RUS",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 144104080.0,
+    "pctChange": -2.8910399041
+  },
+  {
+    "countryName": "Slovak Republic",
+    "countryCode": "SVK",
+    "indicatorCode": "POP_PCT",
+    "group": "FWT",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 5458827.0,
+    "pctChange": 2.9327621663
+  },
+  {
+    "countryName": "Tajikistan",
+    "countryCode": "TJK",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Central Asia",
+    "year": 2020,
+    "value": 9537642.0,
+    "pctChange": 76.6022001853
+  },
+  {
+    "countryName": "Turkmenistan",
+    "countryCode": "TKM",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Central Asia",
+    "year": 2020,
+    "value": 6031187.0,
+    "pctChange": 59.1683231341
+  },
+  {
+    "countryName": "Ukraine",
+    "countryCode": "UKR",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Eastern Europe",
+    "year": 2020,
+    "value": 44134693.0,
+    "pctChange": -15.1264064769
+  },
+  {
+    "countryName": "Uzbekistan",
+    "countryCode": "UZB",
+    "indicatorCode": "POP_PCT",
+    "group": "FSU",
+    "region": "Central Asia",
+    "year": 2020,
+    "value": 34232050.0,
+    "pctChange": 63.3832092402
+  }
+]

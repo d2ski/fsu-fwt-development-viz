@@ -2,6 +2,7 @@
   import { geoPath, geoStereographic } from "d3";
   import MapPath from "$components/MapPath.svelte";
   import MapLabel from "$components/MapLabel.svelte";
+  import { getClassName } from "$utils/helpers.js";
 
   export let data;
   export let width;
@@ -14,14 +15,6 @@
 
   const projection = geoStereographic().center(center);
   const path = geoPath().projection(projection);
-
-  const getClassName = function (rec) {
-    if (rec.properties.group === "FWT") return "fwt-state";
-    if (rec.properties.group === "FSU") return "fsu-state";
-    if (rec.properties.group === "FSU-B") return "fsu-b-state";
-    if (rec.properties.group === "NGHBR") return "neighbour-state";
-    return "";
-  };
 
   const showLabel = function (rec) {
     return rec.properties.group !== "NGHBR";

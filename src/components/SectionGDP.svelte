@@ -1,5 +1,5 @@
 <script>
-  import { scaleLinear, scaleTime, extent, group } from "d3";
+  import { scaleLinear, extent, group } from "d3";
   import data from "$data/GDPPPC.json";
   import SlopeChart from "$components/SlopeChart.svelte";
 
@@ -71,8 +71,8 @@
 </script>
 
 <section>
-  <SlopeChart lines={linesFSU} {w} {h} {padding} shiftLabels={shiftLabels} {ticksX} {ticksY} title="Former USSR except Baltic states"/>
-  <SlopeChart lines={linesFSUB} {w} {h} {padding} shiftLabels={shiftLabels} {ticksX} {ticksY} title="Former USSR, Baltic states only"/>
-  <SlopeChart lines={linesFWT} {w} {h} {padding} shiftLabels={shiftLabels} {ticksX} {ticksY} title="Former Warsaw Treaty"/>
+  <SlopeChart lines={linesFSU} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR except Baltic states"/>
+  <SlopeChart lines={linesFSUB} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR, Baltic states only"/>
+  <SlopeChart lines={linesFWT} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former Warsaw Treaty"/>
 </section>
 
