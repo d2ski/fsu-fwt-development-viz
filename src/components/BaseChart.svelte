@@ -5,8 +5,8 @@
   export let h;
   export let padding;
 
-  export let ticksX;
-  export let ticksY;
+  export let ticksX = [];
+  export let ticksY = [];
   export let title = "";
 
   const xTicksSize = 7;

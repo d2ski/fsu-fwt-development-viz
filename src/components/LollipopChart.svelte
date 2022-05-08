@@ -9,14 +9,13 @@
   export let lines;
 
   export let ticksX;
-  export let ticksY;
   export let title = "";
   export let tabTitle = "";
 
   export let markSize = 4;
 </script>
 
-<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
+<BaseChart {w} {h} {padding} {ticksX} {title} {chartID}>
   <g slot="chart">
     <g
       class="chart__domain"
@@ -46,7 +45,7 @@
 
 <style>
   .chart__lines line {
-    stroke-width: 4px;
+    stroke-width: 3px;
   }
 
   .chart__domain line {

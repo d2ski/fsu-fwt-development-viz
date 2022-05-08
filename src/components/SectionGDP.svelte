@@ -72,7 +72,7 @@
 
 <section>
   <SlopeChart lines={linesFSU} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR except Baltic states"/>
-  <SlopeChart lines={linesFSUB} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR, Baltic states only"/>
+  <SlopeChart lines={linesFSUB} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR Baltic states"/>
   <SlopeChart lines={linesFWT} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former Warsaw Treaty"/>
 </section>
 

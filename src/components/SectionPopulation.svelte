@@ -4,14 +4,16 @@
   import data from "$data/POPPCT.json";
 
   import LollipopChart from "$components/LollipopChart.svelte";
-  import {getClassName} from "$utils/helpers.js";
+  import { getClassName } from "$utils/helpers.js";
 
   const padding = { t: 55, r: 185, b: 25, l: 60 };
   const w = 450 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.pctChange);
-  const domainCountries = sort(data, rec => -rec.pctChange).map(rec => rec.countryName);
+  const domainCountries = sort(data, (rec) => -rec.pctChange).map(
+    (rec) => rec.countryName
+  );
 
   const xScale = scaleLinear().domain(domainValues).range([0, w]).nice();
   const yScale = scaleBand().domain(domainCountries).range([0, h]);
@@ -21,7 +23,7 @@
       return {
         className: getClassName(rec),
         value: rec.pctChange,
-        valueTab: `${(rec.value/1e6).toFixed(1)} mln`,
+        valueTab: `${(rec.value / 1e6).toFixed(1)} mln`,
         xLabel: `${rec.pctChange.toFixed(1)}%`,
         yLabel: rec.countryName,
         x1: xScale(0),
@@ -35,14 +37,12 @@
 
   const lines = generateLines(data);
 
-  const ticksX = xScale.ticks(4).map(d => {
+  const ticksX = xScale.ticks(4).map((d) => {
     return {
       label: d,
-      x: xScale(d)
-    }
+      x: xScale(d),
+    };
   });
-
-  const ticksY = [];
 </script>
 
 <section>
@@ -52,8 +52,7 @@
     {h}
     {padding}
     {ticksX}
-    {ticksY}
-    markSize=4
+    markSize="4"
     title="Population % change, 1991-2020"
     tabTitle="Total in 2020"
     chartID="popChgPctChart"
