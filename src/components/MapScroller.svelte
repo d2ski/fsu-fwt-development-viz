@@ -1,6 +1,5 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
-  import { blur } from "svelte/transition";
 
   import Map from "$components/Map.svelte";
   import map1988 from "$data/map-1988-s.json";
@@ -12,7 +11,6 @@
   const height = 600;
   const scale = 3.8;
   const rotate = 45;
-  // const center = [123.4, -9];
   const center = [125, -11];
 </script>
 
@@ -31,7 +29,6 @@
           {scale}
           {rotate}
           {center}
-          isHoverable="true"
         />
       </div>
     {/if}

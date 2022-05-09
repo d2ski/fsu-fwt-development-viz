@@ -6,7 +6,7 @@
 
   const padding = { t: 55, r: 55, b: 25, l: 55 };
   const w = 350 - padding.r - padding.l;
-  const h = 350 - padding.t - padding.b;
+  const h = 450 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.value);
   const domainYears = extent(data, (rec) => rec.year);
@@ -30,12 +30,27 @@
     }
   );
 
-  const linesFSU = lines.filter(rec => rec.group === 'FSU');
-  const linesFWT = lines.filter(rec => rec.group === 'FWT');
-  const linesFSUB = lines.filter(rec => rec.group === 'FSU-B');
+  const linesFSU = lines.filter((rec) => rec.group === "FSU");
+  const linesFWT = lines.filter((rec) => rec.group === "FWT");
+  const linesFSUB = lines.filter((rec) => rec.group === "FSU-B");
 
-  const ticksX = [];
-  const ticksY = [];
+  const highlights = [{
+    x1: xScale(1991),
+    x2: xScale(1999)
+  }]
+
+  const ticksX = xScale.ticks(4).map((d) => {
+    return {
+      label: d,
+      x: xScale(d),
+    };
+  });
+  const ticksY = yScale.ticks(4).map((d) => {
+    return {
+      label: d,
+      y: yScale(d),
+    };
+  });
 </script>
 
 <section>
@@ -46,6 +61,9 @@
     {padding}
     {ticksX}
     {ticksY}
+    {highlights}
+    hoverKey="countryCode"
+    
     title="Former USSR except Baltic states"
     chartID="lifeExpChartFSU"
   />
@@ -57,6 +75,8 @@
     {padding}
     {ticksX}
     {ticksY}
+    {highlights}
+    hoverKey="countryCode"
     title="Former USSR Baltic states"
     chartID="lifeExpChartFSUB"
   />
@@ -68,22 +88,37 @@
     {padding}
     {ticksX}
     {ticksY}
+    {highlights}
+    hoverKey="countryCode"
     title="Former Warsaw Treaty"
     chartID="lifeExpChartFWT"
   />
 </section>
 
-
 <style>
-  :global(#lifeExpChartFSU path) {
+  :global(#lifeExpChartFSU .chart__lines path) {
     stroke: #800000;
   }
 
-  :global(#lifeExpChartFSUB path) {
+  :global(#lifeExpChartFSUB .chart__lines path) {
     stroke: #d3543f;
   }
 
-  :global(#lifeExpChartFWT path) {
+  :global(#lifeExpChartFWT .chart__lines path) {
     stroke: #ffb495;
+  }
+
+  :global(#lifeExpChartFSU .chart__lines path.muted, #lifeExpChartFSUB
+      .chart__lines
+      path.muted, #lifeExpChartFWT .chart__lines path.muted) {
+    stroke: #e0e0e0;
+  }
+
+  :global(#lifeExpChartFSU .chart__highlights rect, #lifeExpChartFSUB .chart__highlights rect, #lifeExpChartFWT .chart__highlights rect) {
+    fill: #ffcdd2;
+  }
+
+  :global(#lifeExpChartFSU .chart__highlights line, #lifeExpChartFSUB .chart__highlights line, #lifeExpChartFWT .chart__highlights line) {
+    stroke: #ffcdd2;
   }
 </style>

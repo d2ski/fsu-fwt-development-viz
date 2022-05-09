@@ -47,6 +47,8 @@
       {/each}
     </g>
   </svg>
+
+  <slot name="tooltip" />
 </figure>
 
 <style>
