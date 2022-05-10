@@ -34,10 +34,12 @@
   const linesFWT = lines.filter((rec) => rec.group === "FWT");
   const linesFSUB = lines.filter((rec) => rec.group === "FSU-B");
 
-  const highlights = [{
-    x1: xScale(1991),
-    x2: xScale(1999)
-  }]
+  const highlights = [
+    {
+      x1: xScale(1991),
+      x2: xScale(1999),
+    },
+  ];
 
   const ticksX = xScale.ticks(4).map((d) => {
     return {
@@ -63,9 +65,11 @@
     {ticksY}
     {highlights}
     hoverKey="countryCode"
-    
     title="Former USSR except Baltic states"
     chartID="lifeExpChartFSU"
+    --line-color="#800000"
+    --line-color-muted="#e0e0e0"
+    --highlight-color="#ffcdd2"
   />
 
   <LineChart
@@ -79,6 +83,9 @@
     hoverKey="countryCode"
     title="Former USSR Baltic states"
     chartID="lifeExpChartFSUB"
+    --line-color="#d3543f"
+    --line-color-muted="#e0e0e0"
+    --highlight-color="#ffcdd2"
   />
 
   <LineChart
@@ -92,33 +99,8 @@
     hoverKey="countryCode"
     title="Former Warsaw Treaty"
     chartID="lifeExpChartFWT"
+    --line-color="#ffb495"
+    --line-color-muted="#e0e0e0"
+    --highlight-color="#ffcdd2"
   />
 </section>
-
-<style>
-  :global(#lifeExpChartFSU .chart__lines path) {
-    stroke: #800000;
-  }
-
-  :global(#lifeExpChartFSUB .chart__lines path) {
-    stroke: #d3543f;
-  }
-
-  :global(#lifeExpChartFWT .chart__lines path) {
-    stroke: #ffb495;
-  }
-
-  :global(#lifeExpChartFSU .chart__lines path.muted, #lifeExpChartFSUB
-      .chart__lines
-      path.muted, #lifeExpChartFWT .chart__lines path.muted) {
-    stroke: #e0e0e0;
-  }
-
-  :global(#lifeExpChartFSU .chart__highlights rect, #lifeExpChartFSUB .chart__highlights rect, #lifeExpChartFWT .chart__highlights rect) {
-    fill: #ffcdd2;
-  }
-
-  :global(#lifeExpChartFSU .chart__highlights line, #lifeExpChartFSUB .chart__highlights line, #lifeExpChartFWT .chart__highlights line) {
-    stroke: #ffcdd2;
-  }
-</style>

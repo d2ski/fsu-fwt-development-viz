@@ -13,12 +13,12 @@
   const yScale = scaleLinear().domain(domainValues).range([h, 0]).nice();
   const xScale = scaleLinear().domain(domainYears).range([0, w]);
 
-  const generateLines = function (data, activeGroup) {
+  const generateLines = function (data) {
     const lines = [...group(data, (rec) => rec.countryCode).values()].map(
       (rec) => {
         let line = {
           country: rec[0].countryName,
-          isActive: rec[0].group === activeGroup,
+          group: rec[0].group,
           pctChange: rec[0].pctChange,
         };
 
@@ -37,9 +37,20 @@
     return lines.sort((a, b) => a.isActive - b.isActive);
   };
 
-  const linesFSU = generateLines(data, "FSU");
-  const linesFSUB = generateLines(data, "FSU-B");
-  const linesFWT = generateLines(data, "FWT");
+  const lines = generateLines(data);
+
+  const activateLines = function(lines, activeGroup) {
+    const activeLines = lines.map(rec => ({
+      ...rec,
+      isActive: rec.group === activeGroup
+    }));
+
+    return activeLines.sort((a, b) => a.isActive - b.isActive);
+  }
+
+  const linesFSU = activateLines(lines, "FSU");
+  const linesFSUB = activateLines(lines, "FSU-B");
+  const linesFWT = activateLines(lines, "FWT");
 
   const shiftLabels = {
     key: "country",
@@ -54,25 +65,78 @@
     ],
   };
 
-  const ticksX = domainYears.map(d => {
+  const fmtValueStr = function (value, round = 1) {
+    if (value === 0) return "0";
+    return `$${(value / 1000).toFixed(round)}k`;
+  };
+
+  const ticksX = domainYears.map((d) => {
     return {
       label: d,
-      x: xScale(d)
-    }
+      x: xScale(d),
+    };
   });
 
-  const ticksY = yScale.ticks(4).map(d => {
+  const ticksY = yScale.ticks(4).map((d) => {
     return {
-      label: d,
-      y: yScale(d)
-    }
+      label: fmtValueStr(d, 0),
+      y: yScale(d),
+    };
   });
-
 </script>
 
 <section>
-  <SlopeChart lines={linesFSU} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR except Baltic states"/>
-  <SlopeChart lines={linesFSUB} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former USSR Baltic states"/>
-  <SlopeChart lines={linesFWT} {w} {h} {padding} {shiftLabels} {ticksX} {ticksY} title="Former Warsaw Treaty"/>
+  <SlopeChart
+    lines={linesFSU}
+    {w}
+    {h}
+    {padding}
+    {shiftLabels}
+    {ticksX}
+    {ticksY}
+    {fmtValueStr}
+    title="Former USSR except Baltic states"
+    chartID="GdpChartFSU"
+    --line-color="#e0e0e0"
+    --line-color-active="#800000"
+    --label-color="#e0e0e0"
+    --label-color-active="#212121"
+  />
+  <SlopeChart
+    lines={linesFSUB}
+    {w}
+    {h}
+    {padding}
+    {shiftLabels}
+    {ticksX}
+    {ticksY}
+    {fmtValueStr}
+    title="Former USSR Baltic states"
+    chartID="GdpChartFSUB"
+    --line-color="#e0e0e0"
+    --line-color-active="#d3543f"
+    --label-color="#e0e0e0"
+    --label-color-active="#212121"
+  />
+  <SlopeChart
+    lines={linesFWT}
+    {w}
+    {h}
+    {padding}
+    {shiftLabels}
+    {ticksX}
+    {ticksY}
+    {fmtValueStr}
+    title="Former Warsaw Treaty"
+    chartID="GdpChartFWT"
+    --line-color="#e0e0e0"
+    --line-color-active="#ffb495"
+    --label-color="#e0e0e0"
+    --label-color-active="#212121"
+  />
 </section>
 
+
+<style>
+
+</style>

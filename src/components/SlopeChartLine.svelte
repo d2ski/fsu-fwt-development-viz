@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   export let data;
+  export let chartID;
   export let labelPadding = 5;
 
   let isHovered = false;
@@ -35,8 +36,12 @@
   id={data.country}
   class:active={data.isActive}
   class:hovered={isHovered}
-  marker-start={data.isActive ? "url(#dot-active)" : "url(#dot)"}
-  marker-end={data.isActive ? "url(#dot-active)" : "url(#dot)"}
+  marker-start={data.isActive
+    ? `url(#${chartID}DotActive)`
+    : `url(#${chartID}Dot)`}
+  marker-end={data.isActive
+    ? `url(#${chartID}DotActive)`
+    : `url(#${chartID}Dot)`}
   on:mouseenter={lineEnter}
   on:mouseleave={lineLeave}
 />
@@ -53,5 +58,40 @@
   line,
   text {
     cursor: pointer;
+  }
+
+  line {
+    --_line-color: var(--line-color, #e0e0e0);
+
+    stroke-width: 2px;
+    stroke: var(--_line-color);
+  }
+
+  line.active {
+    --_line-color-active: var(--line-color-active, #212121);
+    stroke: var(--_line-color-active);
+  }
+
+  text {
+    --_label-color: var(--label-color, #e0e0e0);
+
+    fill: var(--_label-color);
+    font-size: 1.25rem;
+    transform: translateY(3px);
+  }
+
+  text.active {
+    --_label-color-active: var(--label-color-active, #212121);
+
+    fill: var(--_label-color-active);
+  }
+
+  line.hovered {
+    stroke-width: 4px;
+  }
+
+  text.hovered {
+    transform: translate(2px, 2px);
+    font-weight: 600;
   }
 </style>

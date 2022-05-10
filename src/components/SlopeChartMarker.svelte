@@ -12,5 +12,5 @@
   markerWidth={size}
   markerHeight={size}
 >
-  <circle cx={size} cy={size} r={size} {fill}/>
+  <circle cx={size} cy={size} r={size} fill={`var(${fill})`} />
 </marker>

@@ -24,6 +24,7 @@
         return {
           ...l,
           muted: l?.[hoverKey] === line?.[hoverKey] ? false : true,
+          hovered: l?.[hoverKey] === line?.[hoverKey] ? true : false,
         };
       })
       .sort((l) => -l.muted);
@@ -40,6 +41,7 @@
       return {
         ...l,
         muted: false,
+        hovered: false,
       };
     });
 
@@ -67,6 +69,7 @@
           on:mouseenter={(e) => lineEnter(e, line)}
           on:mouseleave={() => lineLeave(line)}
           class:muted={line.muted}
+          class:hovered={line.hovered}
         />
       {/each}
     </g>
@@ -77,19 +80,35 @@
 
 <style>
   path {
-    stroke: #212121;
+    --_line-color: var(--line-color, #212121);
+
+    stroke: var(--_line-color);
     stroke-width: 2px;
     fill: none;
     cursor: pointer;
   }
 
+  path.muted {
+    --_line-color-muted: var(--line-color-muted, #e0e0e0);
+
+    stroke: var(--_line-color-muted);
+  }
+
+  path.hovered {
+    stroke-width: 4px;
+  }
+
   rect {
-    fill: #212121;
+    --_highlight-color: var(--highlight-color, #212121);
+
+    fill: var(--_highlight-color);
     opacity: 0.3;
   }
 
   line {
-    stroke: #212121;
+    --_highlight-color: var(--highlight-color, #212121);
+
+    stroke: var(--_highlight-color);
     stroke-width: 4px;
   }
 </style>

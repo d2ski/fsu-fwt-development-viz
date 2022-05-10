@@ -16,9 +16,9 @@
   $: height = h + padding.t + padding.b;
 </script>
 
-<figure class="chart" id="{chartID}">
+<figure class="chart" id={chartID}>
   <figcaption class="chart__title">{title}</figcaption>
-  <svg width="{width}px" height="{height}px" viewBox="0 0 {width} {height}" >
+  <svg width="{width}px" height="{height}px" viewBox="0 0 {width} {height}">
     <slot name="markers" />
 
     <slot name="chart" />
