@@ -56,10 +56,11 @@
       class="chart__highlights"
       transform={`translate(${padding.l}, ${padding.t})`}
     >
-      {#each highlights as { x1, x2 }}
+      {#each highlights as { x1, x2, label }}
         <rect x={x1} y="0" width={x2 - x1} height={h} />
         <line {x1} y1={h} y2={h} {x2} />
         <line {x1} y1={0} y2={0} {x2} />
+        <text x={x1 + (x2 - x1)*0.5} y={label.h*h}>{label.content}</text>
       {/each}
     </g>
     <g class="chart__lines" transform={`translate(${padding.l}, ${padding.t})`}>
@@ -110,5 +111,10 @@
 
     stroke: var(--_highlight-color);
     stroke-width: 4px;
+  }
+
+  text {
+    font-size: 1.25rem;
+    fill: #616161;
   }
 </style>

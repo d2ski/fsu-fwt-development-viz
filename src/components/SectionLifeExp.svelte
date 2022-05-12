@@ -35,10 +35,12 @@
   const linesFSUB = lines.filter((rec) => rec.group === "FSU-B");
 
   const highlights = [
+
     {
       x1: xScale(1991),
       x2: xScale(1999),
-    },
+      label: {content: "1990's drop", h: 0.1}
+    }
   ];
 
   const ticksX = xScale.ticks(4).map((d) => {
@@ -53,54 +55,54 @@
       y: yScale(d),
     };
   });
+
 </script>
 
-<section>
-  <LineChart
-    lines={linesFSU}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {highlights}
-    hoverKey="countryCode"
-    title="Former USSR except Baltic states"
-    chartID="lifeExpChartFSU"
-    --line-color="#800000"
-    --line-color-muted="#e0e0e0"
-    --highlight-color="#ffcdd2"
-  />
+    <section>
+      <LineChart
+        lines={linesFSU}
+        {w}
+        {h}
+        {padding}
+        {ticksX}
+        {ticksY}
+        {highlights}
+        hoverKey="countryCode"
+        title="Former USSR except Baltic states"
+        chartID="lifeExpChartFSU"
+        --line-color="#800000"
+        --line-color-muted="#e0e0e0"
+        --highlight-color="#ffcdd2"
+      />
 
-  <LineChart
-    lines={linesFSUB}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {highlights}
-    hoverKey="countryCode"
-    title="Former USSR Baltic states"
-    chartID="lifeExpChartFSUB"
-    --line-color="#d3543f"
-    --line-color-muted="#e0e0e0"
-    --highlight-color="#ffcdd2"
-  />
+      <LineChart
+        lines={linesFSUB}
+        {w}
+        {h}
+        {padding}
+        {ticksX}
+        {ticksY}
+        {highlights}
+        hoverKey="countryCode"
+        title="Former USSR Baltic states"
+        chartID="lifeExpChartFSUB"
+        --line-color="#d3543f"
+        --line-color-muted="#e0e0e0"
+        --highlight-color="#ffcdd2"
+      />
 
-  <LineChart
-    lines={linesFWT}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {highlights}
-    hoverKey="countryCode"
-    title="Former Warsaw Treaty"
-    chartID="lifeExpChartFWT"
-    --line-color="#ffb495"
-    --line-color-muted="#e0e0e0"
-    --highlight-color="#ffcdd2"
-  />
-</section>
+      <LineChart
+        lines={linesFWT}
+        {w}
+        {h}
+        {padding}
+        {ticksX}
+        {ticksY}
+        hoverKey="countryCode"
+        title="Former Warsaw Treaty"
+        chartID="lifeExpChartFWT"
+        --line-color="#ffb495"
+        --line-color-muted="#e0e0e0"
+        --highlight-color="#ffcdd2"
+      />
+    </section>
