@@ -70,9 +70,15 @@
   }
 
   .chart__x-axis__tick text {
+    --_x-tick-writing-mode: var(--x-tick-writing-mode, horizontal-tb);
+    --_x-tick-translate-y: var(--x-tick-translate-y, 0);
+
     text-anchor: middle;
     font-size: 1.15rem;
     fill: #212121;
+
+    writing-mode: var(--_x-tick-writing-mode);
+    transform: translateY(var(--_x-tick-translate-y));
   }
 
   .chart__y-axis line {
