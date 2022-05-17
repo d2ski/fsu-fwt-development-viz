@@ -4,7 +4,7 @@
 
   import LineChart from "$components/LineChart.svelte";
 
-  const padding = { t: 55, r: 55, b: 25, l: 55 };
+  const padding = { t: 55, r: 85, b: 25, l: 55 };
   const w = 350 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 
@@ -25,6 +25,9 @@
         countryCode: key,
         group: value[0].group,
         countryName: value[0].countryName,
+        y: yScale(value[value.length - 1].value),
+        valueStart: value[0].value,
+        valueEnd: value[value.length - 1].value,
         path: lineGenerator(value),
       };
     }
@@ -42,6 +45,25 @@
       label: {content: "1990's drop", h: 0.1}
     }
   ];
+
+  const shiftLabels = {
+    key: "countryName",
+    shift: [
+      ["Georgia", 5],
+      ["Azerbaijan", 1],
+      ["Moldova", -7],
+      ["Uzbekistan", 0],
+      ["Kyrgyz Republic", 9],
+      ["Kazakhstan", 13],
+      ["Russian Federation", 22],
+      ["Tajikistan", 32],
+      ["Ukraine", 41],
+      ["Turkmenistan", 5],
+      ["Lithuania", 5],
+      ["Slovak Republic", -2],
+      ["Poland", 5],
+    ],
+  };
 
   const ticksX = xScale.ticks(4).map((d) => {
     return {
@@ -67,6 +89,7 @@
         {ticksX}
         {ticksY}
         {highlights}
+        {shiftLabels}
         hoverKey="countryCode"
         title="Former USSR except Baltic states"
         chartID="lifeExpChartFSU"
@@ -83,6 +106,7 @@
         {ticksX}
         {ticksY}
         {highlights}
+        {shiftLabels}
         hoverKey="countryCode"
         title="Former USSR Baltic states"
         chartID="lifeExpChartFSUB"
@@ -98,6 +122,7 @@
         {padding}
         {ticksX}
         {ticksY}
+        {shiftLabels}
         hoverKey="countryCode"
         title="Former Warsaw Treaty"
         chartID="lifeExpChartFWT"

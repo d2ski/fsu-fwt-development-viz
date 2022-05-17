@@ -15,6 +15,16 @@
   export let hoverKey = undefined;
 
   export let highlights = [];
+  export let shiftLabels = { shift: [] };
+
+  const labelPadding = 5;
+
+  // shifted labels will have `lblPos` property
+  shiftLabels.shift.forEach((shiftLbl) => {
+    const line = lines.find((el) => el[shiftLabels.key] === shiftLbl[0]);
+    if (!line) return;
+    line.y += shiftLbl[1];
+  });
 
   let tooltip = { show: false, x: 0, y: 0, content: [""] };
 
@@ -32,7 +42,7 @@
     tooltip.show = true;
     tooltip.x = e.offsetX;
     tooltip.y = e.offsetY;
-    tooltip.content = [line.countryName];
+    tooltip.content = [`${line.valueStart.toFixed(1)} 🠒 ${line.valueEnd.toFixed(1)} yrs`];
     tooltip = tooltip;
   };
 
@@ -60,7 +70,7 @@
         <rect x={x1} y="0" width={x2 - x1} height={h} />
         <line {x1} y1={h} y2={h} {x2} />
         <line {x1} y1={0} y2={0} {x2} />
-        <text x={x1 + (x2 - x1)*0.5} y={label.h*h}>{label.content}</text>
+        <text x={x1 + (x2 - x1) * 0.5} y={label.h * h}>{label.content}</text>
       {/each}
     </g>
     <g class="chart__lines" transform={`translate(${padding.l}, ${padding.t})`}>
@@ -72,6 +82,15 @@
           class:muted={line.muted}
           class:hovered={line.hovered}
         />
+        <text
+          x={w + labelPadding}
+          y={line.y}
+          class="label"
+          on:mouseenter={(e) => lineEnter(e, line)}
+          on:mouseleave={() => lineLeave(line)}
+          class:muted={line.muted}
+          class:hovered={line.hovered}>{line.countryName}</text
+        >
       {/each}
     </g>
   </g>
@@ -116,5 +135,20 @@
   text {
     font-size: 1.25rem;
     fill: #616161;
+  }
+
+  text.label {
+    fill: #212121;
+    cursor: pointer;
+  }
+
+  text.label.hovered {
+    font-weight: 600;
+  }
+
+  text.label.muted {
+    --_label-color-muted: var(--line-color-muted, #e0e0e0);
+
+    fill: var(--_label-color-muted);
   }
 </style>
