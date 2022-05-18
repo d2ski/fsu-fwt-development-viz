@@ -18,6 +18,37 @@
   export let hoverKey = undefined;
 
   let tooltip = { show: false, x: 0, y: 0, content: [""] };
+
+  const dotEnter = (e, dot) => {
+    dots = dots
+      .map((d) => {
+        return {
+          ...d,
+          muted: d?.[hoverKey] === dot?.[hoverKey] ? false : true,
+          hovered: d?.[hoverKey] === dot?.[hoverKey] ? true : false,
+        };
+      })
+      .sort((d) => -d.muted);
+
+    tooltip.show = true;
+    tooltip.x = e.offsetX;
+    tooltip.y = e.offsetY;
+    tooltip.content = [`${dot.countryName}`, `${dot.year}: ${dot.value.toFixed(2)}%`];
+    tooltip = tooltip;
+  };
+
+  const dotLeave = (dot) => {
+    dots = dots.map((d) => {
+      return {
+        ...d,
+        muted: false,
+        hovered: false,
+      };
+    });
+
+    tooltip.show = false;
+    tooltip = tooltip;
+  };
 </script>
 
 <BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
@@ -38,11 +69,18 @@
       <path d={line} />
     </g>
     <g class="chart__dots" transform={`translate(${padding.l}, ${padding.t})`}>
-      {#each dots as { cx, cy, countryName, value }}
-        <circle {cx} {cy} {r} data-country={countryName} data-value={value} />
+      {#each dots as dot}
+        <circle cx={dot.cx} cy={dot.cy} {r}
+        on:mouseenter={(e) => dotEnter(e, dot)}
+        on:mouseleave={() => dotLeave(dot)}
+        class:muted={dot.muted}
+        class:hovered={dot.hovered}
+        />
       {/each}
     </g>
   </g>
+
+  <BaseChartTooltip slot="tooltip" {tooltip} />
 </BaseChart>
 
 <style>
@@ -52,6 +90,21 @@
     fill: var(--_dot-color);
     fill-opacity: 0.35;
     stroke: none;
+
+    cursor: pointer;
+  }
+
+  circle.muted {
+    --_dot-color-muted: var(--dot-color-muted, #e0e0e0);
+
+    fill: var(--_dot-color-muted);
+    fill-opacity: 0.6;
+  }
+
+  circle.hovered {
+    fill-opacity: 1;
+    transform: scale(1.1);
+    transform-box: fill-box;
   }
 
   .chart__domain line {

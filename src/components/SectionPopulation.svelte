@@ -7,7 +7,7 @@
   import { getClassName } from "$utils/helpers.js";
 
   const padding = { t: 55, r: 185, b: 25, l: 60 };
-  const w = 450 - padding.r - padding.l;
+  const w = 400 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.pctChange);

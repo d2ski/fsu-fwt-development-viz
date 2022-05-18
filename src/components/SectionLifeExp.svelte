@@ -5,7 +5,7 @@
   import LineChart from "$components/LineChart.svelte";
 
   const padding = { t: 55, r: 85, b: 25, l: 55 };
-  const w = 350 - padding.r - padding.l;
+  const w = 400 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.value);
@@ -53,14 +53,14 @@
       ["Azerbaijan", 1],
       ["Moldova", -7],
       ["Uzbekistan", 0],
-      ["Kyrgyz Republic", 9],
+      ["Kyrgyzstan", 9],
       ["Kazakhstan", 13],
-      ["Russian Federation", 22],
+      ["Russia", 22],
       ["Tajikistan", 32],
       ["Ukraine", 41],
       ["Turkmenistan", 5],
       ["Lithuania", 5],
-      ["Slovak Republic", -2],
+      ["Slovakia", -2],
       ["Poland", 5],
     ],
   };

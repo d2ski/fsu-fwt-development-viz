@@ -4,7 +4,7 @@
   import SlopeChart from "$components/SlopeChart.svelte";
 
   const padding = { t: 25, r: 130, b: 25, l: 60 };
-  const w = 350 - padding.r - padding.l;
+  const w = 400 - padding.r - padding.l;
   const h = 550 - padding.t - padding.b;
 
   const domainYears = extent(data, (rec) => rec.year);
@@ -61,7 +61,7 @@
       ["Ukraine", 7],
       ["Moldova", 16],
       ["Hungary", -3],
-      ["Slovak Republic", 2],
+      ["Slovakia", 2],
     ],
   };
 
