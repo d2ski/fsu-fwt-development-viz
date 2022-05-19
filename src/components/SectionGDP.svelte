@@ -18,6 +18,7 @@
       (rec) => {
         let line = {
           country: rec[0].countryName,
+          countryCode: rec[0].countryCode,
           group: rec[0].group,
           pctChange: rec[0].pctChange,
         };
@@ -39,14 +40,14 @@
 
   const lines = generateLines(data);
 
-  const activateLines = function(lines, activeGroup) {
-    const activeLines = lines.map(rec => ({
+  const activateLines = function (lines, activeGroup) {
+    const activeLines = lines.map((rec) => ({
       ...rec,
-      isActive: rec.group === activeGroup
+      isActive: rec.group === activeGroup,
     }));
 
     return activeLines.sort((a, b) => a.isActive - b.isActive);
-  }
+  };
 
   const linesFSU = activateLines(lines, "FSU");
   const linesFSUB = activateLines(lines, "FSU-B");
@@ -83,6 +84,11 @@
       y: yScale(d),
     };
   });
+
+  const referenceLine = {
+    key: "countryCode",
+    value: "EUU",
+  };
 </script>
 
 <section>
@@ -95,12 +101,15 @@
     {ticksX}
     {ticksY}
     {fmtValueStr}
+    {referenceLine}
     title="Former USSR except Baltic states"
     chartID="GdpChartFSU"
     --line-color="#e0e0e0"
     --line-color-active="#800000"
+    --line-color-reference="#212121"
     --label-color="#e0e0e0"
     --label-color-active="#212121"
+    --label-color-reference="#212121"
   />
   <SlopeChart
     lines={linesFSUB}
@@ -111,12 +120,15 @@
     {ticksX}
     {ticksY}
     {fmtValueStr}
+    {referenceLine}
     title="Former USSR Baltic states"
     chartID="GdpChartFSUB"
     --line-color="#e0e0e0"
     --line-color-active="#d3543f"
+    --line-color-reference="#212121"
     --label-color="#e0e0e0"
     --label-color-active="#212121"
+    --label-color-reference="#212121"
   />
   <SlopeChart
     lines={linesFWT}
@@ -127,16 +139,17 @@
     {ticksX}
     {ticksY}
     {fmtValueStr}
+    {referenceLine}
     title="Former Warsaw Treaty"
     chartID="GdpChartFWT"
     --line-color="#e0e0e0"
     --line-color-active="#ffb495"
+    --line-color-reference="#212121"
     --label-color="#e0e0e0"
     --label-color-active="#212121"
+    --label-color-reference="#212121"
   />
 </section>
 
-
 <style>
-
 </style>

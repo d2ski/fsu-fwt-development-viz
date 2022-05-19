@@ -14,6 +14,7 @@
   export let ticksY;
   export let title = "";
   export let fmtValueStr;
+  export let referenceLine = undefined;
 
   const labelPadding = 5;
 
@@ -50,6 +51,11 @@
       size="3"
       fill="--line-color-active"
     />
+    <SlopeChartMarker
+      id={`${chartID}DotReference`}
+      size="3"
+      fill="--line-color-reference"
+    />
   </defs>
 
   <g slot="chart">
@@ -71,6 +77,7 @@
           {labelPadding}
           on:lineEnter={handleLineEnter}
           on:lineLeave={handleLineLeave}
+          isReferenceLine={line?.[referenceLine.key] === referenceLine.value}
         />
       {/each}
     </g>

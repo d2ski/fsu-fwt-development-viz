@@ -2,6 +2,7 @@
   import { createEventDispatcher } from "svelte";
   export let data;
   export let chartID;
+  export let isReferenceLine = false;
   export let labelPadding = 5;
 
   let isHovered = false;
@@ -26,6 +27,10 @@
       country: data.country,
     });
   };
+
+  let markerURL = `url(#${chartID}Dot)`;
+  if (data.isActive) markerURL = `url(#${chartID}DotActive)`;
+  if (isReferenceLine) markerURL = `url(#${chartID}DotReference)`;
 </script>
 
 <line
@@ -36,12 +41,9 @@
   id={data.country}
   class:active={data.isActive}
   class:hovered={isHovered}
-  marker-start={data.isActive
-    ? `url(#${chartID}DotActive)`
-    : `url(#${chartID}Dot)`}
-  marker-end={data.isActive
-    ? `url(#${chartID}DotActive)`
-    : `url(#${chartID}Dot)`}
+  class:reference={isReferenceLine}
+  marker-start={markerURL}
+  marker-end={markerURL}
   on:mouseenter={lineEnter}
   on:mouseleave={lineLeave}
 />
@@ -50,6 +52,7 @@
   y={data.lblPos || data.y2}
   class:active={data.isActive}
   class:hovered={isHovered}
+  class:reference={isReferenceLine}
   on:mousemove={lineEnter}
   on:mouseleave={lineLeave}>{data.country}</text
 >
@@ -93,5 +96,17 @@
   text.hovered {
     transform: translate(2px, 2px);
     font-weight: 600;
+  }
+
+  line.reference {
+    --_line-color-reference: var(--line-color-reference, #212121);
+    stroke: var(--_line-color-reference);
+    stroke-dasharray: 4 4;
+  }
+
+  text.reference {
+    --_label-color-reference: var(--label-color-reference, #212121);
+
+    fill: var(--_label-color-reference);
   }
 </style>
