@@ -3,7 +3,7 @@
   import data from "$data/GDPPPC.json";
   import SlopeChart from "$components/SlopeChart.svelte";
 
-  const padding = { t: 25, r: 130, b: 25, l: 60 };
+  const padding = { t: 25, r: 105, b: 25, l: 50 };
   const w = 400 - padding.r - padding.l;
   const h = 550 - padding.t - padding.b;
 

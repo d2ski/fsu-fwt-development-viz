@@ -65,7 +65,7 @@
 
   const ticksY = yScale.ticks(8).map((d) => {
     return {
-      label: `${d}%`,
+      label: d === 0 ? `${d}` : `${d}%`,
       y: yScale(d),
     };
   });

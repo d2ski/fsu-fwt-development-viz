@@ -41,7 +41,7 @@
     {
       x1: xScale(1991),
       x2: xScale(1999),
-      label: { content: "1990s' crisis", h: 0.1 },
+      label: { content: "1990s crisis", h: 0.1 },
     },
   ];
 

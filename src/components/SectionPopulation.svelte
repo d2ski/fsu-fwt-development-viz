@@ -39,7 +39,7 @@
 
   const ticksX = xScale.ticks(4).map((d) => {
     return {
-      label: d,
+      label: d === 0 ? `${d}` : `${d}%`,
       x: xScale(d),
     };
   });

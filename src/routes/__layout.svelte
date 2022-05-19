@@ -14,7 +14,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title
-    >Visualizing economic development of the former USSR and the Warsaw Treaty
+    >Visualizing economic development of the former USSR and the Warsaw Treaty Organization
     (Pact) countries
   </title>
   <meta name="description" content="" />
