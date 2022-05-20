@@ -79,6 +79,8 @@
 </script>
 
 <section>
+  <h2 class="section__header">Life expectancy</h2>
+
   <LineChart
     lines={linesFSU}
     {w}

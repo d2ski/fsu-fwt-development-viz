@@ -46,6 +46,8 @@
 </script>
 
 <section>
+  <h2 class="section__header">Population</h2>
+
   <LollipopChart
     {lines}
     {w}

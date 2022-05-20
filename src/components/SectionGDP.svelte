@@ -92,6 +92,8 @@
 </script>
 
 <section>
+  <h2 class="section__header">GDP per capita</h2>
+
   <SlopeChart
     lines={linesFSU}
     {w}

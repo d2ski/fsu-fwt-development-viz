@@ -75,6 +75,8 @@
 </script>
 
 <section>
+  <h2 class="section__header">GDP annual growth</h2>
+
   <DotChart
     dots={dotsFSU}
     line={meanFSU}
