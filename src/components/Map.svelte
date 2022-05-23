@@ -37,7 +37,7 @@
   };
 </script>
 
-<svg {width} {height} viewBox="0 0 {width} {height}">
+<svg viewBox="0 0 {width} {height}">
   <g
     class="map"
     transform="scale({scale}) rotate({rotate})"

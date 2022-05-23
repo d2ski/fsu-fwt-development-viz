@@ -6,7 +6,7 @@
   import LollipopChart from "$components/LollipopChart.svelte";
   import { getClassName } from "$utils/helpers.js";
 
-  const padding = { t: 55, r: 185, b: 25, l: 60 };
+  const padding = { t: 50, r: 185, b: 25, l: 60 };
   const w = 400 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 

@@ -14,41 +14,54 @@
   const center = [125, -11];
 </script>
 
-<Scroller top={0.05} bottom={0.8} bind:index bind:offset bind:progress>
+<Scroller top={0.05} bottom={1} bind:index bind:offset bind:progress>
   <div slot="background">
-    {#if index === 0}
+    {#if index < 1}
       <div class="map-container">
         <Map data={map1988} {width} {height} {scale} {rotate} {center} />
       </div>
-    {:else if index === 1}
+    {:else if index >= 1}
       <div class="map-container">
-        <Map
-          data={map1993}
-          {width}
-          {height}
-          {scale}
-          {rotate}
-          {center}
-        />
+        <Map data={map1993} {width} {height} {scale} {rotate} {center} />
       </div>
     {/if}
   </div>
 
   <div slot="foreground" style="padding: 0 0 0 50%;">
-    <section>1988</section>
-    <section>1993</section>
+    <section>
+      <p>
+        In 1989 pro-Soviet regimes of the former Warsaw Pact countries Poland,
+        Hungary, East Germany, Czechoslovakia, Bulgaria and Romania had fallen
+        in a few months as a result of peaceful revolutions (except Romania -
+        not so peaceful). No communist country left in Eastern Europe.
+      </p>
+    </section>
+    <section>
+      <p>
+        By the end of 1991 the Soviet Union collapsed. Former soviet republics
+        became independent states: Estonia, Lithuania,
+        Latvia, Azerbaijan, Georgia, Russia, Uzbekistan, Moldova, Belarus,
+        Turkmenistan, Tajikistan, Kazakhstan, Kyrgyzstan.
+      </p>
+    </section>
+    <section class="scroll-end">
+      <p>
+      </p>
+    </section>
   </div>
 </Scroller>
 
 <style>
   [slot="background"] {
     position: relative;
+
   }
 
   .map-container {
     position: absolute;
     top: 0;
     left: 0;
+    width: 50%;
     display: inline-block;
     border: 2px solid #e0e0e0;
   }
@@ -56,5 +69,17 @@
   section {
     height: 80vh;
     font-size: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  section.scroll-end {
+    height: 50px;
+    margin: 1rem 0 0 -100%;
+  }
+
+  p {
+    padding: 0 3rem;
   }
 </style>

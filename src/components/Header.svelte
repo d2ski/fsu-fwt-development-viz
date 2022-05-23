@@ -3,16 +3,17 @@
 </script>
 
 <header class="header">
-
   <div class="header__logo-box">
     <div class="header__logo">
-      <a href="https://ohmychart.com">{@html logo}</a>
-    </div>
-    <div class="header__logo__text">
-      <a href="https://ohmychart.com">OHMYCHART!COM</a>
+      <div class="header__logo__icon">
+        <a href="https://ohmychart.com">{@html logo}</a>
+      </div>
+      <div class="header__logo__text">
+        <a href="https://ohmychart.com">OHMYCHART!COM</a>
+      </div>
     </div>
   </div>
-  
+
   <div class="header__cover">
     <div class="header__cover__text-box">
       <h1>
@@ -26,8 +27,6 @@
     <div class="arrow-down">🠗</div>
   </div>
 </header>
-
-
 
 <style>
   .header__logo-box {
@@ -45,18 +44,37 @@
     font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;
-    color: #fff;
     font-weight: 600;
   }
 
-  .header__logo {
+  .header__logo__icon {
     width: 32px;
     margin: 0 1rem;
     display: inline-block;
+    transition: 0.4s all;
   }
 
-  .header__logo:hover {
-      opacity: 0.7;
+  .header__logo {
+    display: flex;
+    flex-direction: row;
+    line-height: 0;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .header__logo a {
+    fill: #ffb495;
+    color: #ffb495;
+    transition: 0.4s all;
+  }
+
+  .header__logo:hover a {
+    fill: #fff;
+    color: #fff;
+  }
+
+  .header__logo:hover .header__logo__icon {
+    transform: scale(1.1);
   }
 
   .header__cover {
@@ -70,16 +88,17 @@
   }
 
   .header__cover__text-box {
-      max-width: 700px;
-      text-align: center;
+    max-width: 700px;
+    text-align: center;
   }
 
   h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      color: #fff;
-      text-transform: uppercase;
-      text-shadow: -2px -2px 0 #400000, 2px -2px 0 #400000, -2px 2px 0 #400000, 2px 2px 0 #400000;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #400000, 2px -2px 0 #400000, -2px 2px 0 #400000,
+      2px 2px 0 #400000;
   }
 
   .header__intro {
@@ -94,8 +113,8 @@
   }
 
   .arrow-down {
-      font-size: 3rem;
-      margin: 2rem 0;
-      color: #400000;
+    font-size: 3rem;
+    margin: 2rem 0;
+    color: #400000;
   }
 </style>

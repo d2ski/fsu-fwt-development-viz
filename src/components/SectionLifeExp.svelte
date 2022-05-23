@@ -4,7 +4,7 @@
 
   import LineChart from "$components/LineChart.svelte";
 
-  const padding = { t: 55, r: 90, b: 42, l: 40 };
+  const padding = { t: 25, r: 90, b: 42, l: 40 };
   const w = 400 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 
