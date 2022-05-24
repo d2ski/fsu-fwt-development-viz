@@ -1,5 +1,7 @@
 <script>
+  import { fade } from 'svelte/transition';
   import logo from "$svg/logo.svg";
+  export let isHeaderPassed;
 </script>
 
 <header class="header">
@@ -24,7 +26,11 @@
   <div class="header__intro">
     <p>Visualizing first 30 years of the post-Soviet economy development.</p>
     <p>Which countries have performed best and worst?</p>
-    <div class="arrow-down">🠗</div>
+    <div class="arrow-down">
+      {#if !isHeaderPassed}
+        <span transition:fade>🠗</span>
+      {/if}
+    </div>
   </div>
 </header>
 
@@ -114,6 +120,8 @@
 
   .arrow-down {
     font-size: 3rem;
+    line-height: 3rem;
+    height: 3rem;
     margin: 2rem 0;
     color: #400000;
   }

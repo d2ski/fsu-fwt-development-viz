@@ -5,10 +5,12 @@
   import SectionGdpGrowth from "$components/SectionGDPGrowth.svelte";
   import SectionPopulation from "$components/SectionPopulation.svelte";
   import SectionLifeExp from "$components/SectionLifeExp.svelte";
+
+  let isHeaderPassed = false;
 </script>
 
-<Header />
-<SectionMap />
+<Header {isHeaderPassed} />
+<SectionMap on:enterViewport={()=> isHeaderPassed = true} />
 <SectionGdp />
 <SectionGdpGrowth />
 <SectionPopulation />

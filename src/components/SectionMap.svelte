@@ -1,9 +1,10 @@
 <script>
+  import {viewport} from "$actions/viewport.js";
   import MapScroller from "$components/MapScroller.svelte";
 </script>
 
 <section>
-  <h2 class="section__header">
+  <h2 class="section__header" use:viewport on:enterViewport>
     Dissolution of the Soviet Union and the Warsaw Pact
   </h2>
   <p>
