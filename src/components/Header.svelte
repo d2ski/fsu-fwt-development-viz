@@ -1,5 +1,5 @@
 <script>
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
   import logo from "$svg/logo.svg";
   export let isHeaderPassed;
 </script>
@@ -124,5 +124,20 @@
     height: 3rem;
     margin: 2rem 0;
     color: #400000;
+
+    animation-duration: 0.65s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0.2;
+    }
   }
 </style>

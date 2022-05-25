@@ -47,29 +47,46 @@
   <div slot="foreground" style="padding: 0 0 0 50%;">
     <section>
       <p>
-        In 1989 pro-Soviet regimes of <span class="highlight fwt">former Warsaw Pact countries</span> Poland,
-        Hungary, East Germany, Czechoslovakia, Bulgaria and Romania had fallen
-        in a few months as a result of peaceful revolutions (except Romania -
-        not so peaceful). No communist country left in Eastern Europe.
+        In 1989 pro-Soviet regimes of <mark class="highlight fwt"
+          >former Warsaw Pact countries</mark
+        > Poland, Hungary, East Germany, Czechoslovakia, Bulgaria and Romania had
+        fallen in a few months as a result of peaceful revolutions (except Romania
+        - not so peaceful). No communist country left in Eastern Europe.
       </p>
     </section>
     <section>
       <p>
-        By the end of 1991 the Soviet Union collapsed. <span  class="highlight fsu">Former soviet republics</span>
-        became independent states: Estonia, Lithuania, Latvia, Azerbaijan,
-        Georgia, Russia, Uzbekistan, Moldova, Belarus, Turkmenistan, Tajikistan,
-        Kazakhstan, Kyrgyzstan.
+        Political liberalization and the economic crisis have also intensified
+        requests for political and economic autonomy in the Soviet republics. By
+        late 1991, the USSR had collapsed.
       </p>
     </section>
-    <section class="scroll-end">
-      <p />
+    <section>
+      <p>
+        First republics to declare a sovereignty were <mark class="highlight fsu-b">Baltic states</mark>: Estonia, Lithuania and Latvia.
+      </p>
     </section>
+    <section>
+      <p>
+        Soon <mark
+          class="highlight fsu">other former soviet republics</mark
+        >
+        became independent states: Azerbaijan, Georgia,
+        Russia, Uzbekistan, Moldova, Belarus, Turkmenistan, Tajikistan, Kazakhstan,
+        Kyrgyzstan.
+      </p>
+    </section>
+
   </div>
 </Scroller>
 
 <style>
   [slot="background"] {
     position: relative;
+  }
+
+  [slot="foreground"] {
+    margin-bottom: 3rem;
   }
 
   .map-container {
@@ -82,39 +99,14 @@
   }
 
   section {
-    height: 80vh;
+    height: 90vh;
     font-size: 3.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
-  section.scroll-end {
-    height: 50px;
-    margin: 1rem 0 0 -100%;
-  }
-
   p {
     padding: 0 3rem;
-  }
-
-  span.highlight {
-    color: #fff;
-    font-weight: 600;
-    border-radius: 4px;
-    padding: 0 2px;
-  }
-
-  span.highlight.fsu {
-    background-color: #800000;
-  }
-
-  span.highlight.fsu-b {
-    background-color: #d3543f;
-  }
-
-  span.highlight.fwt {
-    background-color: #ffb495;
-    color: #212121;
   }
 </style>

@@ -41,3 +41,23 @@ section p {
   text-align: left;
   margin: 0 auto 3rem auto;
 }
+
+mark.highlight {
+  color: #fff;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+mark.highlight.fsu {
+  background-color: #800000;
+}
+
+mark.highlight.fsu-b {
+  background-color: #d3543f;
+}
+
+mark.highlight.fwt {
+  background-color: #ffb495;
+  color: #212121;
+}

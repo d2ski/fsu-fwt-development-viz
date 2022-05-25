@@ -5,6 +5,7 @@
   import SectionGdpGrowth from "$components/SectionGDPGrowth.svelte";
   import SectionPopulation from "$components/SectionPopulation.svelte";
   import SectionLifeExp from "$components/SectionLifeExp.svelte";
+  import Footer from "$components/Footer.svelte";
 
   let isHeaderPassed = false;
 </script>
@@ -15,3 +16,4 @@
 <SectionGdpGrowth />
 <SectionPopulation />
 <SectionLifeExp />
+<Footer />
