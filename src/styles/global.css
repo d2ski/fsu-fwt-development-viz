@@ -33,6 +33,12 @@ section {
   margin: 0 0 5rem 0;
 }
 
+.section-scroll-h {
+  overflow: auto;
+  white-space: nowrap;
+  padding: 0 1rem 2rem 1rem;
+}
+
 section p {
   font-size: 1.75rem;
   line-height: 2.5rem;

@@ -48,17 +48,19 @@
 <section>
   <h2 class="section__header">Population</h2>
 
-  <LollipopChart
-    {lines}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    markSize="4"
-    title="Population % change, 1991-2020"
-    tabTitle="Total in 2020"
-    chartID="popChgPctChart"
-  />
+  <div class="section__charts section-scroll-h">
+    <LollipopChart
+      {lines}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      markSize="4"
+      title="Population % change, 1991-2020"
+      tabTitle="Total in 2020"
+      chartID="popChgPctChart"
+    />
+  </div>
 </section>
 
 <style>

@@ -81,53 +81,56 @@
 <section>
   <h2 class="section__header">Life expectancy</h2>
 
-  <LineChart
-    lines={linesFSU}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {highlights}
-    {shiftLabels}
-    hoverKey="countryCode"
-    title="Former USSR except Baltic states"
-    chartID="lifeExpChartFSU"
-    --line-color="#800000"
-    --line-color-muted="#e0e0e0"
-    --highlight-color="#ffcdd2"
-  />
+  <div class="section__charts section-scroll-h">
+    <LineChart
+      lines={linesFSU}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      {ticksY}
+      {highlights}
+      {shiftLabels}
+      hoverKey="countryCode"
+      title="Former USSR except Baltic states"
+      chartID="lifeExpChartFSU"
+      --line-color="#800000"
+      --line-color-muted="#e0e0e0"
+      --highlight-color="#ffcdd2"
+    />
 
-  <LineChart
-    lines={linesFSUB}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {highlights}
-    {shiftLabels}
-    hoverKey="countryCode"
-    title="Former USSR Baltic states"
-    chartID="lifeExpChartFSUB"
-    --line-color="#d3543f"
-    --line-color-muted="#e0e0e0"
-    --highlight-color="#ffcdd2"
-  />
+    <LineChart
+      lines={linesFSUB}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      {ticksY}
+      {highlights}
+      {shiftLabels}
+      hoverKey="countryCode"
+      title="Former USSR Baltic states"
+      chartID="lifeExpChartFSUB"
+      --line-color="#d3543f"
+      --line-color-muted="#e0e0e0"
+      --highlight-color="#ffcdd2"
+    />
 
-  <LineChart
-    lines={linesFWT}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {shiftLabels}
-    hoverKey="countryCode"
-    title="Former Warsaw Treaty"
-    chartID="lifeExpChartFWT"
-    --line-color="#ffb495"
-    --line-color-muted="#e0e0e0"
-    --highlight-color="#ffcdd2"
-  />
+    <LineChart
+      lines={linesFWT}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      {ticksY}
+      {shiftLabels}
+      hoverKey="countryCode"
+      title="Former Warsaw Treaty"
+      chartID="lifeExpChartFWT"
+      --line-color="#ffb495"
+      --line-color-muted="#e0e0e0"
+      --highlight-color="#ffcdd2"
+    />
+  </div>
 </section>
+

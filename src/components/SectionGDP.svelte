@@ -94,64 +94,63 @@
 <section>
   <h2 class="section__header">GDP per capita</h2>
 
-  <SlopeChart
-    lines={linesFSU}
-    {w}
-    {h}
-    {padding}
-    {shiftLabels}
-    {ticksX}
-    {ticksY}
-    {fmtValueStr}
-    {referenceLine}
-    title="Former USSR except Baltic states"
-    chartID="GdpChartFSU"
-    --line-color="#e0e0e0"
-    --line-color-active="#800000"
-    --line-color-reference="#212121"
-    --label-color="#e0e0e0"
-    --label-color-active="#212121"
-    --label-color-reference="#212121"
-  />
-  <SlopeChart
-    lines={linesFSUB}
-    {w}
-    {h}
-    {padding}
-    {shiftLabels}
-    {ticksX}
-    {ticksY}
-    {fmtValueStr}
-    {referenceLine}
-    title="Former USSR Baltic states"
-    chartID="GdpChartFSUB"
-    --line-color="#e0e0e0"
-    --line-color-active="#d3543f"
-    --line-color-reference="#212121"
-    --label-color="#e0e0e0"
-    --label-color-active="#212121"
-    --label-color-reference="#212121"
-  />
-  <SlopeChart
-    lines={linesFWT}
-    {w}
-    {h}
-    {padding}
-    {shiftLabels}
-    {ticksX}
-    {ticksY}
-    {fmtValueStr}
-    {referenceLine}
-    title="Former Warsaw Treaty"
-    chartID="GdpChartFWT"
-    --line-color="#e0e0e0"
-    --line-color-active="#ffb495"
-    --line-color-reference="#212121"
-    --label-color="#e0e0e0"
-    --label-color-active="#212121"
-    --label-color-reference="#212121"
-  />
+  <div class="section__charts section-scroll-h">
+    <SlopeChart
+      lines={linesFSU}
+      {w}
+      {h}
+      {padding}
+      {shiftLabels}
+      {ticksX}
+      {ticksY}
+      {fmtValueStr}
+      {referenceLine}
+      title="Former USSR except Baltic states"
+      chartID="GdpChartFSU"
+      --line-color="#e0e0e0"
+      --line-color-active="#800000"
+      --line-color-reference="#212121"
+      --label-color="#e0e0e0"
+      --label-color-active="#212121"
+      --label-color-reference="#212121"
+    />
+    <SlopeChart
+      lines={linesFSUB}
+      {w}
+      {h}
+      {padding}
+      {shiftLabels}
+      {ticksX}
+      {ticksY}
+      {fmtValueStr}
+      {referenceLine}
+      title="Former USSR Baltic states"
+      chartID="GdpChartFSUB"
+      --line-color="#e0e0e0"
+      --line-color-active="#d3543f"
+      --line-color-reference="#212121"
+      --label-color="#e0e0e0"
+      --label-color-active="#212121"
+      --label-color-reference="#212121"
+    />
+    <SlopeChart
+      lines={linesFWT}
+      {w}
+      {h}
+      {padding}
+      {shiftLabels}
+      {ticksX}
+      {ticksY}
+      {fmtValueStr}
+      {referenceLine}
+      title="Former Warsaw Treaty"
+      chartID="GdpChartFWT"
+      --line-color="#e0e0e0"
+      --line-color-active="#ffb495"
+      --line-color-reference="#212121"
+      --label-color="#e0e0e0"
+      --label-color-active="#212121"
+      --label-color-reference="#212121"
+    />
+  </div>
 </section>
-
-<style>
-</style>

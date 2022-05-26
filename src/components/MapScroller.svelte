@@ -14,7 +14,7 @@
   const center = [125, -11];
 </script>
 
-<Scroller top={0.01} bottom={1} bind:index bind:offset bind:progress>
+<Scroller top={0} bottom={1} bind:index bind:offset bind:progress>
   <div slot="background">
     {#if index < 1}
       <div class="map-container">
@@ -44,7 +44,7 @@
     {/if}
   </div>
 
-  <div slot="foreground" style="padding: 0 0 0 50%;">
+  <div slot="foreground">
     <section>
       <p>
         In 1989 pro-Soviet regimes of <mark class="highlight fwt"
@@ -63,20 +63,18 @@
     </section>
     <section>
       <p>
-        First republics to declare a sovereignty were <mark class="highlight fsu-b">Baltic states</mark>: Estonia, Lithuania and Latvia.
+        First republics to declare a sovereignty were <mark
+          class="highlight fsu-b">Baltic states</mark
+        >: Estonia, Lithuania and Latvia.
       </p>
     </section>
     <section>
       <p>
-        Soon <mark
-          class="highlight fsu">other former soviet republics</mark
-        >
-        became independent states: Azerbaijan, Georgia,
-        Russia, Uzbekistan, Moldova, Belarus, Turkmenistan, Tajikistan, Kazakhstan,
-        Kyrgyzstan.
+        Soon <mark class="highlight fsu">other former soviet republics</mark>
+        became independent states: Azerbaijan, Georgia, Russia, Uzbekistan, Moldova,
+        Belarus, Turkmenistan, Tajikistan, Kazakhstan, Kyrgyzstan.
       </p>
     </section>
-
   </div>
 </Scroller>
 
@@ -87,6 +85,13 @@
 
   [slot="foreground"] {
     margin-bottom: 3rem;
+    padding: 0 0 0 50%;
+  }
+
+  @media (max-width: 600px) {
+    [slot="foreground"] {
+      padding: 0;
+    }
   }
 
   .map-container {
@@ -95,7 +100,13 @@
     left: 0;
     width: 50%;
     display: inline-block;
-    border: 2px solid #e0e0e0;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .map-container {
+      width: 100%;
+    }
   }
 
   section {
@@ -104,6 +115,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    section p {
+      background-color: rgba(248, 248, 248, 0.8);
+      margin: 0 1rem;
+      padding: 1rem 1rem;
+    }
   }
 
   p {

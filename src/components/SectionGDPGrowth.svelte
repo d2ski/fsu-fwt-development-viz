@@ -71,69 +71,70 @@
   });
 
   const zeroY = yScale(0);
-
 </script>
 
 <section>
   <h2 class="section__header">GDP annual growth</h2>
 
-  <DotChart
-    dots={dotsFSU}
-    line={meanFSU}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {r}
-    {zeroY}
-    hoverKey="countryCode"
-    title="Former USSR except Baltic states"
-    chartID="gdpGrowthChartFSU"
-    --dot-color="#800000"
-    --line-color="#800000"
-    --dot-color-muted="#e0e0e0"
-    --x-tick-writing-mode="vertical-lr"
-    --x-tick-translate-y="10px"
-  />
+  <div class="section__charts section-scroll-h">
+    <DotChart
+      dots={dotsFSU}
+      line={meanFSU}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      {ticksY}
+      {r}
+      {zeroY}
+      hoverKey="countryCode"
+      title="Former USSR except Baltic states"
+      chartID="gdpGrowthChartFSU"
+      --dot-color="#800000"
+      --line-color="#800000"
+      --dot-color-muted="#e0e0e0"
+      --x-tick-writing-mode="vertical-lr"
+      --x-tick-translate-y="10px"
+    />
 
-  <DotChart
-    dots={dotsFSUB}
-    line={meanFSUB}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {r}
-    {zeroY}
-    hoverKey="countryCode"
-    title="Former USSR Baltic states"
-    chartID="gdpGrowthChartFSUB"
-    --dot-color="#d3543f"
-    --line-color="#d3543f"
-    --dot-color-muted="#e0e0e0"
-    --x-tick-writing-mode="vertical-lr"
-    --x-tick-translate-y="10px"
-  />
+    <DotChart
+      dots={dotsFSUB}
+      line={meanFSUB}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      {ticksY}
+      {r}
+      {zeroY}
+      hoverKey="countryCode"
+      title="Former USSR Baltic states"
+      chartID="gdpGrowthChartFSUB"
+      --dot-color="#d3543f"
+      --line-color="#d3543f"
+      --dot-color-muted="#e0e0e0"
+      --x-tick-writing-mode="vertical-lr"
+      --x-tick-translate-y="10px"
+    />
 
-  <DotChart
-    dots={dotsFWT}
-    line={meanFWT}
-    {w}
-    {h}
-    {padding}
-    {ticksX}
-    {ticksY}
-    {r}
-    {zeroY}
-    hoverKey="countryCode"
-    title="Former Warsaw Treaty"
-    chartID="gdpGrowthChartFWT"
-    --dot-color="#ffb495"
-    --line-color="#ffb495"
-    --dot-color-muted="#e0e0e0"
-    --x-tick-writing-mode="vertical-lr"
-    --x-tick-translate-y="10px"
-  />
+    <DotChart
+      dots={dotsFWT}
+      line={meanFWT}
+      {w}
+      {h}
+      {padding}
+      {ticksX}
+      {ticksY}
+      {r}
+      {zeroY}
+      hoverKey="countryCode"
+      title="Former Warsaw Treaty"
+      chartID="gdpGrowthChartFWT"
+      --dot-color="#ffb495"
+      --line-color="#ffb495"
+      --dot-color-muted="#e0e0e0"
+      --x-tick-writing-mode="vertical-lr"
+      --x-tick-translate-y="10px"
+    />
+  </div>
 </section>

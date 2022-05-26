@@ -28,7 +28,7 @@
     <p>Which countries have performed best and worst?</p>
     <div class="arrow-down">
       {#if !isHeaderPassed}
-        <span transition:fade>🠗</span>
+        <span transition:fade>&darr;</span>
       {/if}
     </div>
   </div>
@@ -91,6 +91,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 1rem;
   }
 
   .header__cover__text-box {
@@ -116,6 +117,8 @@
     font-size: 1.85rem;
     line-height: 3rem;
     font-weight: 400;
+    text-align: center;
+    padding: 0 1rem;
   }
 
   .arrow-down {
