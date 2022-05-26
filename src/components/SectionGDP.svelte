@@ -1,19 +1,23 @@
 <script>
+  import { width as innerWidth} from "$stores/window.js";
   import { scaleLinear, extent, group } from "d3";
   import data from "$data/GDPPPC.json";
+
+  // import { width as windowWidth } from "$stores/window.js";
   import SlopeChart from "$components/SlopeChart.svelte";
 
   const padding = { t: 25, r: 105, b: 25, l: 50 };
-  const w = 400 - padding.r - padding.l;
-  const h = 550 - padding.t - padding.b;
+  $: width = Math.min(400, $innerWidth);
+  $: w = width - padding.r - padding.l;
+  $: h = 550 - padding.t - padding.b; // 550
 
   const domainYears = extent(data, (rec) => rec.year);
   const domainValues = extent(data, (rec) => rec.value);
 
-  const yScale = scaleLinear().domain(domainValues).range([h, 0]).nice();
-  const xScale = scaleLinear().domain(domainYears).range([0, w]);
+  $: yScale = scaleLinear().domain(domainValues).range([h, 0]).nice();
+  $: xScale = scaleLinear().domain(domainYears).range([0, w]);
 
-  const generateLines = function (data) {
+  const generateLines = function (data, xScale, yScale) {
     const lines = [...group(data, (rec) => rec.countryCode).values()].map(
       (rec) => {
         let line = {
@@ -38,7 +42,7 @@
     return lines.sort((a, b) => a.isActive - b.isActive);
   };
 
-  const lines = generateLines(data);
+  $: lines = generateLines(data, xScale, yScale);
 
   const activateLines = function (lines, activeGroup) {
     const activeLines = lines.map((rec) => ({
@@ -49,9 +53,9 @@
     return activeLines.sort((a, b) => a.isActive - b.isActive);
   };
 
-  const linesFSU = activateLines(lines, "FSU");
-  const linesFSUB = activateLines(lines, "FSU-B");
-  const linesFWT = activateLines(lines, "FWT");
+  $: linesFSU = activateLines(lines, "FSU");
+  $: linesFSUB = activateLines(lines, "FSU-B");
+  $: linesFWT = activateLines(lines, "FWT");
 
   const shiftLabels = {
     key: "country",
@@ -71,14 +75,14 @@
     return `$${(value / 1000).toFixed(round)}k`;
   };
 
-  const ticksX = domainYears.map((d) => {
+  $: ticksX = domainYears.map((d) => {
     return {
       label: d,
       x: xScale(d),
     };
   });
 
-  const ticksY = yScale.ticks(4).map((d) => {
+  $: ticksY = yScale.ticks(4).map((d) => {
     return {
       label: fmtValueStr(d, 0),
       y: yScale(d),

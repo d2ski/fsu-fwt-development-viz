@@ -21,7 +21,7 @@
   let tooltip = { show: false, x: 0, y: 0, content: [""] };
 
   // shifted labels will have `lblPos` property
-  shiftLabels.shift.forEach((shiftLbl) => {
+  $: shiftLabels.shift.forEach((shiftLbl) => {
     const lbl = lines.find((el) => el[shiftLabels.key] === shiftLbl[0]);
     lbl.lblPos = lbl.y2 + shiftLbl[1];
   });

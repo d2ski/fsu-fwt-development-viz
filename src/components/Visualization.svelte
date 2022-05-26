@@ -1,4 +1,5 @@
 <script>
+  import {width} from "$stores/window.js";
   import Header from "$components/Header.svelte";
   import SectionMap from "$components/SectionMap.svelte";
   import SectionGdp from "$components/SectionGDP.svelte";
@@ -10,8 +11,10 @@
   let isHeaderPassed = false;
 </script>
 
+<svelte:window bind:innerWidth={$width} />
+
 <Header {isHeaderPassed} />
-<SectionMap on:enterViewport={()=> isHeaderPassed = true} />
+<SectionMap on:enterViewport={() => (isHeaderPassed = true)} />
 <SectionGdp />
 <SectionGdpGrowth />
 <SectionPopulation />

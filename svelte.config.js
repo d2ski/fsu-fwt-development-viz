@@ -16,6 +16,7 @@ const config = {
 					"$data": path.resolve("./src/data"),
 					"$components": path.resolve("./src/components"),
 					"$utils": path.resolve("./src/utils"),
+					"$stores": path.resolve("./src/stores"),
 					"$actions": path.resolve("./src/actions"),
 					"$svg": path.resolve("./src/svg")
 				}
