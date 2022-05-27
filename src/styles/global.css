@@ -67,3 +67,13 @@ mark.highlight.fwt {
   background-color: #ffb495;
   color: #212121;
 }
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.2;
+  }
+}

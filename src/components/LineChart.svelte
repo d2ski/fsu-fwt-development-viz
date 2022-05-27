@@ -20,7 +20,7 @@
   const labelPadding = 5;
 
   // shifted labels will have `lblPos` property
-  shiftLabels.shift.forEach((shiftLbl) => {
+  $: shiftLabels.shift.forEach((shiftLbl) => {
     const line = lines.find((el) => el[shiftLabels.key] === shiftLbl[0]);
     if (!line) return;
     line.y += shiftLbl[1];

@@ -8,7 +8,7 @@ const initIntersectionObserver = function () {
       const eventName = entry.isIntersecting ? "enterViewport" : "exitViewport";
       entry.target.dispatchEvent(new CustomEvent(eventName));
     });
-  });
+  }, {threshold: 0.75});
 };
 
 export function viewport(node) {

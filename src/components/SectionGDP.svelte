@@ -1,10 +1,10 @@
 <script>
-  import { width as innerWidth} from "$stores/window.js";
+  import { width as innerWidth } from "$stores/window.js";
+  import { viewport } from "$actions/viewport.js";
   import { scaleLinear, extent, group } from "d3";
   import data from "$data/GDPPPC.json";
-
-  // import { width as windowWidth } from "$stores/window.js";
   import SlopeChart from "$components/SlopeChart.svelte";
+  import IconHScroll from "$components/IconHScroll.svelte";
 
   const padding = { t: 25, r: 105, b: 25, l: 50 };
   $: width = Math.min(400, $innerWidth);
@@ -93,12 +93,19 @@
     key: "countryCode",
     value: "EUU",
   };
+
+  let isInView = false;
 </script>
 
 <section>
   <h2 class="section__header">GDP per capita</h2>
 
-  <div class="section__charts section-scroll-h">
+  <div
+    class="section__charts section-scroll-h"
+    use:viewport
+    on:enterViewport={() => (isInView = true)}
+    on:exitViewport={() => (isInView = false)}
+  >
     <SlopeChart
       lines={linesFSU}
       {w}
@@ -156,5 +163,7 @@
       --label-color-active="#212121"
       --label-color-reference="#212121"
     />
+
+    <IconHScroll {isInView} />
   </div>
 </section>

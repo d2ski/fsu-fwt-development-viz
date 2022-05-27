@@ -134,13 +134,4 @@
     animation-direction: alternate;
   }
 
-  @keyframes blink {
-    from {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0.2;
-    }
-  }
 </style>

@@ -1,24 +1,27 @@
 <script>
   import { scaleLinear, extent, group, line } from "d3";
   import data from "$data/LETS.json";
-
+  import { viewport } from "$actions/viewport.js";
+  import { width as innerWidth } from "$stores/window.js";
   import LineChart from "$components/LineChart.svelte";
+  import IconHScroll from "$components/IconHScroll.svelte";
 
   const padding = { t: 25, r: 90, b: 42, l: 40 };
-  const w = 400 - padding.r - padding.l;
-  const h = 450 - padding.t - padding.b;
+  $: width = Math.min(400, $innerWidth);
+  $: w = width - padding.r - padding.l;
+  $: h = 450 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.value);
   const domainYears = extent(data, (rec) => rec.year);
 
-  const xScale = scaleLinear().domain(domainYears).range([0, w]);
-  const yScale = scaleLinear().domain(domainValues).range([h, 0]).nice();
+  $: xScale = scaleLinear().domain(domainYears).range([0, w]);
+  $: yScale = scaleLinear().domain(domainValues).range([h, 0]).nice();
 
-  const lineGenerator = line()
+  $: lineGenerator = line()
     .x((d) => xScale(d.year))
     .y((d) => yScale(d.value));
 
-  const lines = Array.from(
+  $: lines = Array.from(
     group(data, (rec) => rec.countryCode),
     ([key, value]) => {
       return {
@@ -33,11 +36,11 @@
     }
   );
 
-  const linesFSU = lines.filter((rec) => rec.group === "FSU");
-  const linesFWT = lines.filter((rec) => rec.group === "FWT");
-  const linesFSUB = lines.filter((rec) => rec.group === "FSU-B");
+  $: linesFSU = lines.filter((rec) => rec.group === "FSU");
+  $: linesFWT = lines.filter((rec) => rec.group === "FWT");
+  $: linesFSUB = lines.filter((rec) => rec.group === "FSU-B");
 
-  const highlights = [
+  $: highlights = [
     {
       x1: xScale(1991),
       x2: xScale(1999),
@@ -64,24 +67,31 @@
     ],
   };
 
-  const ticksX = [1991, 2000, 2010, 2020].map((d) => {
+  $: ticksX = [1991, 2000, 2010, 2020].map((d) => {
     return {
       label: d,
       x: xScale(d),
     };
   });
-  const ticksY = yScale.ticks(4).map((d) => {
+  $: ticksY = yScale.ticks(4).map((d) => {
     return {
       label: d,
       y: yScale(d),
     };
   });
+
+  let isInView = false;
 </script>
 
 <section>
   <h2 class="section__header">Life expectancy</h2>
 
-  <div class="section__charts section-scroll-h">
+  <div
+    class="section__charts section-scroll-h"
+    use:viewport
+    on:enterViewport={() => (isInView = true)}
+    on:exitViewport={() => (isInView = false)}
+  >
     <LineChart
       lines={linesFSU}
       {w}
@@ -131,6 +141,7 @@
       --line-color-muted="#e0e0e0"
       --highlight-color="#ffcdd2"
     />
+
+    <IconHScroll {isInView} />
   </div>
 </section>
-

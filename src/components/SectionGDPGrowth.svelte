@@ -2,19 +2,23 @@
   import { scaleLinear, extent, rollup, mean, line } from "d3";
 
   import data from "$data/GDPCHG.json";
+  import { width as innerWidth } from "$stores/window.js";
+  import { viewport } from "$actions/viewport.js";
   import DotChart from "$components/DotChart.svelte";
+  import IconHScroll from "$components/IconHScroll.svelte";
 
   const padding = { t: 25, r: 10, b: 42, l: 50 };
-  const w = 400 - padding.r - padding.l;
-  const h = 350 - padding.t - padding.b;
+  $: width = Math.min(400, $innerWidth);
+  $: w = width - padding.r - padding.l;
+  $: h = 350 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.value);
   const domainYears = extent(data, (rec) => rec.year);
 
-  const xScale = scaleLinear().range([0, w]).domain(domainYears);
-  const yScale = scaleLinear().range([h, 0]).domain(domainValues).nice();
+  $: xScale = scaleLinear().range([0, w]).domain(domainYears);
+  $: yScale = scaleLinear().range([h, 0]).domain(domainValues).nice();
 
-  const dots = data.map((rec) => ({
+  $: dots = data.map((rec) => ({
     cx: xScale(rec.year),
     cy: yScale(rec.value),
     group: rec.group,
@@ -27,7 +31,7 @@
   // Dot radius
   const r = 4;
 
-  const lineGenerator = line()
+  $: lineGenerator = line()
     .x((d) => xScale(d.year))
     .y((d) => yScale(d.value));
 
@@ -47,36 +51,43 @@
   };
 
   // Generate charts data
-  const dotsFSU = dots.filter((dot) => dot.group === "FSU" && dot.value);
-  const meanFSU = generateMeanLine(dotsFSU);
+  $: dotsFSU = dots.filter((dot) => dot.group === "FSU" && dot.value);
+  $: meanFSU = generateMeanLine(dotsFSU);
 
-  const dotsFSUB = dots.filter((dot) => dot.group === "FSU-B" && dot.value);
-  const meanFSUB = generateMeanLine(dotsFSUB);
+  $: dotsFSUB = dots.filter((dot) => dot.group === "FSU-B" && dot.value);
+  $: meanFSUB = generateMeanLine(dotsFSUB);
 
-  const dotsFWT = dots.filter((dot) => dot.group === "FWT" && dot.value);
-  const meanFWT = generateMeanLine(dotsFWT);
+  $: dotsFWT = dots.filter((dot) => dot.group === "FWT" && dot.value);
+  $: meanFWT = generateMeanLine(dotsFWT);
 
-  const ticksX = xScale.ticks(domainYears[1] - domainYears[0]).map((d) => {
+  $: ticksX = xScale.ticks(domainYears[1] - domainYears[0]).map((d) => {
     return {
       label: d,
       x: xScale(d),
     };
   });
 
-  const ticksY = yScale.ticks(8).map((d) => {
+  $: ticksY = yScale.ticks(8).map((d) => {
     return {
       label: d === 0 ? `${d}` : `${d}%`,
       y: yScale(d),
     };
   });
 
-  const zeroY = yScale(0);
+  $: zeroY = yScale(0);
+
+  let isInView = false;
 </script>
 
 <section>
   <h2 class="section__header">GDP annual growth</h2>
 
-  <div class="section__charts section-scroll-h">
+  <div
+    class="section__charts section-scroll-h"
+    use:viewport
+    on:enterViewport={() => (isInView = true)}
+    on:exitViewport={() => (isInView = false)}
+  >
     <DotChart
       dots={dotsFSU}
       line={meanFSU}
@@ -136,5 +147,6 @@
       --x-tick-writing-mode="vertical-lr"
       --x-tick-translate-y="10px"
     />
+    <IconHScroll {isInView} />
   </div>
 </section>
