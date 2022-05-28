@@ -6,7 +6,7 @@
   import LineChart from "$components/LineChart.svelte";
   import IconHScroll from "$components/IconHScroll.svelte";
 
-  const padding = { t: 25, r: 90, b: 42, l: 40 };
+  const padding = { t: 25, r: 105, b: 25, l: 40 };
   $: width = Math.min(400, $innerWidth);
   $: w = width - padding.r - padding.l;
   $: h = 450 - padding.t - padding.b;
@@ -36,9 +36,15 @@
     }
   );
 
-  $: linesFSU = lines.filter((rec) => rec.group === "FSU");
-  $: linesFWT = lines.filter((rec) => rec.group === "FWT");
-  $: linesFSUB = lines.filter((rec) => rec.group === "FSU-B");
+  $: linesFSU = lines.filter(
+    (rec) => rec.group === "FSU" || rec.group === "EUU"
+  );
+  $: linesFWT = lines.filter(
+    (rec) => rec.group === "FWT" || rec.group === "EUU"
+  );
+  $: linesFSUB = lines.filter(
+    (rec) => rec.group === "FSU-B" || rec.group === "EUU"
+  );
 
   $: highlights = [
     {
@@ -50,21 +56,21 @@
 
   const shiftLabels = {
     key: "countryName",
-    shift: [
-      ["Georgia", 5],
-      ["Azerbaijan", 1],
-      ["Moldova", -7],
-      ["Uzbekistan", 0],
-      ["Kyrgyzstan", 9],
-      ["Kazakhstan", 13],
-      ["Russia", 22],
-      ["Tajikistan", 32],
-      ["Ukraine", 41],
-      ["Turkmenistan", 5],
-      ["Lithuania", 5],
-      ["Slovakia", -2],
-      ["Poland", 5],
-    ],
+    shift: {
+      Georgia: 5,
+      Azerbaijan: 1,
+      Moldova: -7,
+      Uzbekistan: 0,
+      Kyrgyzstan: 9,
+      Kazakhstan: 13,
+      Russia: 22,
+      Tajikistan: 32,
+      Ukraine: 41,
+      Turkmenistan: 5,
+      Lithuania: 5,
+      Slovakia: -2,
+      Poland: 5,
+    },
   };
 
   $: ticksX = [1991, 2000, 2010, 2020].map((d) => {
@@ -79,6 +85,11 @@
       y: yScale(d),
     };
   });
+
+  const referenceLine = {
+    key: "countryCode",
+    value: "EUU",
+  };
 
   let isInView = false;
 </script>
@@ -101,11 +112,14 @@
       {ticksY}
       {highlights}
       {shiftLabels}
+      {referenceLine}
       hoverKey="countryCode"
       title="Former USSR except Baltic states"
       chartID="lifeExpChartFSU"
       --line-color="#800000"
       --line-color-muted="#e0e0e0"
+      --line-color-reference="#212121"
+      --label-color-reference="#212121"
       --highlight-color="#ffcdd2"
     />
 
@@ -118,11 +132,14 @@
       {ticksY}
       {highlights}
       {shiftLabels}
+      {referenceLine}
       hoverKey="countryCode"
       title="Former USSR Baltic states"
       chartID="lifeExpChartFSUB"
       --line-color="#d3543f"
       --line-color-muted="#e0e0e0"
+      --line-color-reference="#212121"
+      --label-color-reference="#212121"
       --highlight-color="#ffcdd2"
     />
 
@@ -134,11 +151,14 @@
       {ticksX}
       {ticksY}
       {shiftLabels}
+      {referenceLine}
       hoverKey="countryCode"
       title="Former Warsaw Treaty"
       chartID="lifeExpChartFWT"
       --line-color="#ffb495"
       --line-color-muted="#e0e0e0"
+      --line-color-reference="#212121"
+      --label-color-reference="#212121"
       --highlight-color="#ffcdd2"
     />
 

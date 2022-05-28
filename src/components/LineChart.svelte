@@ -16,15 +16,14 @@
 
   export let highlights = [];
   export let shiftLabels = { shift: [] };
+  export let referenceLine;
 
   const labelPadding = 5;
 
-  // shifted labels will have `lblPos` property
-  $: shiftLabels.shift.forEach((shiftLbl) => {
-    const line = lines.find((el) => el[shiftLabels.key] === shiftLbl[0]);
-    if (!line) return;
-    line.y += shiftLbl[1];
-  });
+  const shiftBy = function (line) {
+    const shiftVal = shiftLabels.shift?.[line?.[shiftLabels.key]];
+    return shiftVal ? shiftVal : 0;
+  };
 
   let tooltip = { show: false, x: 0, y: 0, content: [""] };
 
@@ -42,7 +41,9 @@
     tooltip.show = true;
     tooltip.x = e.offsetX;
     tooltip.y = e.offsetY;
-    tooltip.content = [`${line.valueStart.toFixed(1)} 🠒 ${line.valueEnd.toFixed(1)} yrs`];
+    tooltip.content = [
+      `${line.valueStart.toFixed(1)} 🠒 ${line.valueEnd.toFixed(1)} yrs`,
+    ];
     tooltip = tooltip;
   };
 
@@ -58,6 +59,10 @@
     tooltip.show = false;
     tooltip = tooltip;
   };
+
+  const isReferenceLine = (line) =>
+    line?.[referenceLine.key] === referenceLine.value;
+
 </script>
 
 <BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
@@ -81,10 +86,11 @@
           on:mouseleave={() => lineLeave(line)}
           class:muted={line.muted}
           class:hovered={line.hovered}
+          class:reference={isReferenceLine(line)}
         />
         <text
           x={w + labelPadding}
-          y={line.y}
+          y={line.y + shiftBy(line)}
           class="label"
           on:mouseenter={(e) => lineEnter(e, line)}
           on:mouseleave={() => lineLeave(line)}
@@ -112,6 +118,13 @@
     --_line-color-muted: var(--line-color-muted, #e0e0e0);
 
     stroke: var(--_line-color-muted);
+  }
+
+  path.reference {
+    --_line-color-reference: var(--line-color-reference, #212121);
+
+    stroke: var(--_line-color-reference);
+    stroke-dasharray: 4 4;
   }
 
   path.hovered {

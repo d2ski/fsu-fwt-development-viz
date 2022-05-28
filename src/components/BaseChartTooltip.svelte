@@ -1,8 +1,8 @@
 <script>
   export let tooltip;
 
-  const offX = -25;
-  const offY = 47;
+  const offX = -115;
+  const offY = -30;
 </script>
 
 {#if tooltip.show}

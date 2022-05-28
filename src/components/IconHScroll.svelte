@@ -7,13 +7,13 @@
   class="section__scroll-icon"
   class:visible={isInView && $innerWidth < 1250}
 >
-  <span>scroll &rarr</span>
+  <span>&rarr</span>
 </div>
 
 <style>
   .section__scroll-icon {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 2rem;
+    line-height: 2rem;
     padding: 1rem 0 0 1.5rem;
     color: #9e9e9e;
     opacity: 0;
