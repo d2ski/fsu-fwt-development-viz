@@ -6,8 +6,8 @@
   import LollipopChart from "$components/LollipopChart.svelte";
   import { getClassName } from "$utils/helpers.js";
 
-  const padding = { t: 50, r: 185, b: 25, l: 60 };
-  const w = 400 - padding.r - padding.l;
+  const padding = { t: 50, r: 200, b: 25, l: 60 };
+  const w = 600 - padding.r - padding.l;
   const h = 450 - padding.t - padding.b;
 
   const domainValues = extent(data, (rec) => rec.pctChange);
@@ -48,6 +48,15 @@
 <section>
   <h2 class="section__header">Population</h2>
 
+  <div class="section__content">
+    <p>
+      Most of the former Soviet bloc countries experienced population decrease
+      during the period of 1991 - 2020. Especially Baltic states Lithuania and
+      Latvia where the population loss was the highest. However, in the ex-USSR
+      countries of Central Asia population growth was rapid.
+    </p>
+  </div>
+
   <div class="section__charts section-scroll-h">
     <LollipopChart
       {lines}
@@ -57,10 +66,12 @@
       {ticksX}
       markSize="4"
       title="Population % change, 1991-2020"
-      tabTitle="Total in 2020"
+      tabTitle="Population in 2020"
       chartID="popChgPctChart"
     />
   </div>
+
+
 </section>
 
 <style>

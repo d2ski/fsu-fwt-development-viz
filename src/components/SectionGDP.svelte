@@ -98,7 +98,9 @@
 </script>
 
 <section>
-  <h2 class="section__header">GDP per capita</h2>
+  <h2 class="section__header">GDP per capita,
+    <span class="section__subheader">based on purchasing power parity and expressed in constant 2017 international $</span>
+  </h2>
 
   <div
     class="section__charts section-scroll-h"

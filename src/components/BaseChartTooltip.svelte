@@ -29,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 999;
   }
 
   p.chart__tooltip__text {

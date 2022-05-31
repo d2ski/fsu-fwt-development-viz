@@ -53,6 +53,12 @@
     font-weight: 600;
   }
 
+  @media (max-width: 600px) {
+    .header__logo__text {
+      display: none;
+    }
+  }
+
   .header__logo__icon {
     width: 32px;
     margin: 0 1rem;

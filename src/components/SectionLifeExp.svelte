@@ -95,7 +95,22 @@
 </script>
 
 <section>
-  <h2 class="section__header">Life expectancy</h2>
+  <h2 class="section__header">Life expectancy at birth</h2>
+
+  <div class="section__content">
+    <p>
+      Soon after the USSR had collapsed former USSR countries
+      including Baltic states faced a
+      demographic crisis. Life expectancy in most of the countries dropped
+      significantly. But the crisis didn't affect
+      former Warsaw Pact countries so much, except
+      Romania and Bulgaria.
+    </p>
+    <p>
+      30 years after former Warsaw Pact countries and Baltic states are ahead of
+      other ex-USSR countries by life expectancy levels.
+    </p>
+  </div>
 
   <div
     class="section__charts section-scroll-h"

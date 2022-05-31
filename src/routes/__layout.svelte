@@ -14,14 +14,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title
-    >Visualizing economic development of the former USSR and the Warsaw Treaty Organization
-    (Pact) countries
+    >Visualizing economic development of the former USSR and the Warsaw Treaty
+    Organization (Pact) countries
   </title>
-  <meta name="description" content="" />
-  
-  
+  <meta
+    name="description"
+    content="Visualizing key economic development indicators of the former Soviet bloc countries for the period from 1991 to 2020: GDP per capita, GDP growth, population and life expectancy."
+  />
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  
+
   <meta name="author" content="ohmychart.com" />
   <link
     rel="apple-touch-icon"

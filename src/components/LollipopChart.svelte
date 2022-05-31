@@ -35,7 +35,7 @@
           >{yLabel}</text
         >
 
-        <text x={(w + padding.r) * 0.8} y={y1} class="tab-text">{valueTab}</text
+        <text x={(w + padding.r) * 0.80} y={y1} class="tab-text">{valueTab}</text
         >
       {/each}
       <text x={(w + padding.r) * 0.75} y={0} class="tab-title">{tabTitle}</text>

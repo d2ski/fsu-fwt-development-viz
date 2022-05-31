@@ -33,6 +33,19 @@ section {
   margin: 0 0 5rem 0;
 }
 
+span.section__subheader {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.section__content {
+  margin: 0 auto 5rem auto;
+  max-width: 95%;
+}
+
 .section-scroll-h {
   overflow: auto;
   white-space: nowrap;
