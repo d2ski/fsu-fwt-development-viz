@@ -168,7 +168,7 @@
       {shiftLabels}
       {referenceLine}
       hoverKey="countryCode"
-      title="Former Warsaw Treaty"
+      title="Former Warsaw Pact"
       chartID="lifeExpChartFWT"
       --line-color="#ffb495"
       --line-color-muted="#e0e0e0"

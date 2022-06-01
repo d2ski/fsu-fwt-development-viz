@@ -156,7 +156,7 @@
       {ticksY}
       {fmtValueStr}
       {referenceLine}
-      title="Former Warsaw Treaty"
+      title="Former Warsaw Pact"
       chartID="GdpChartFWT"
       --line-color="#e0e0e0"
       --line-color-active="#ffb495"

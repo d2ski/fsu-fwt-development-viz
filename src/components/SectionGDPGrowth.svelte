@@ -139,7 +139,7 @@
       {r}
       {zeroY}
       hoverKey="countryCode"
-      title="Former Warsaw Treaty"
+      title="Former Warsaw Pact"
       chartID="gdpGrowthChartFWT"
       --dot-color="#ffb495"
       --line-color="#ffb495"

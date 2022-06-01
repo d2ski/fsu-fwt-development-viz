@@ -1,7 +1,17 @@
 <script>
   import { fade } from "svelte/transition";
   import logo from "$svg/logo.svg";
+  import {showSideMenu} from "$stores/sideMenu.js";
+  import {width, contentWidth} from "$stores/window.js";
+  import SideMenu from "$components/SideMenu.svelte";
   export let isHeaderPassed;
+
+  function openMenu() {
+    $showSideMenu = true;
+    const scrollBarWidth = $width - $contentWidth;
+    window.document.body.classList.toggle('no-scroll');
+    window.document.body.style.paddingRight = `${scrollBarWidth}px`;
+  }
 </script>
 
 <header class="header">
@@ -13,6 +23,9 @@
       <div class="header__logo__text">
         <a href="https://ohmychart.com">OHMYCHART!COM</a>
       </div>
+    </div>
+    <div class="header__about-menu" on:click={openMenu}>
+      <span>About</span>
     </div>
   </div>
 
@@ -32,6 +45,9 @@
       {/if}
     </div>
   </div>
+
+  <SideMenu />
+  
 </header>
 
 <style>
@@ -39,11 +55,12 @@
     background-color: #400000;
     height: 10vh;
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: row;
     line-height: 0;
     align-items: center;
+    justify-content: space-between;
   }
 
   .header__logo__text a {
@@ -63,7 +80,7 @@
     width: 32px;
     margin: 0 1rem;
     display: inline-block;
-    transition: 0.4s all;
+    transition: all 0.4s;
   }
 
   .header__logo {
@@ -87,6 +104,20 @@
 
   .header__logo:hover .header__logo__icon {
     transform: scale(1.1);
+  }
+
+  .header__about-menu span {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    color: #ffb495;
+    cursor: pointer;
+    transition: 0.4s all;
+  }
+
+  .header__about-menu:hover span {
+    color: #fff;
   }
 
   .header__cover {

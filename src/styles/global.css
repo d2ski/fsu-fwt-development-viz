@@ -18,6 +18,10 @@ body {
   color: #212121;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 section {
   margin: 0 auto;
   padding: 3rem 0;
@@ -31,6 +35,11 @@ section {
   line-height: 3rem;
   font-weight: 600;
   margin: 0 0 5rem 0;
+}
+
+aside section {
+  padding: 3rem;
+  text-align: left;
 }
 
 span.section__subheader {

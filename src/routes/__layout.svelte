@@ -2,6 +2,7 @@
   import { base } from "$app/paths";
   import { onMount } from "svelte";
   import "$styles/global.css";
+  import {contentWidth} from '$stores/window.js';
 
   let isLoaded = false;
 
@@ -51,7 +52,7 @@
   </div>
 {/if}
 
-<main class="content">
+<main class="content" bind:clientWidth={$contentWidth}>
   <slot />
 </main>
 
