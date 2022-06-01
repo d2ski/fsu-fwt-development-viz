@@ -62,7 +62,6 @@
 
   const isReferenceLine = (line) =>
     line?.[referenceLine.key] === referenceLine.value;
-
 </script>
 
 <BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
@@ -101,7 +100,7 @@
     </g>
   </g>
 
-  <BaseChartTooltip slot="tooltip" {tooltip} />
+  <BaseChartTooltip slot="tooltip" {tooltip} chartWidth={w} />
 </BaseChart>
 
 <style>

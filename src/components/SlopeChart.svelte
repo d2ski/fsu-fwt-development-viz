@@ -83,7 +83,7 @@
     </g>
   </g>
 
-  <BaseChartTooltip slot="tooltip" {tooltip} />
+  <BaseChartTooltip slot="tooltip" {tooltip} chartWidth={w} />
 </BaseChart>
 
 <style>

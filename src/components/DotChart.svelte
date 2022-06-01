@@ -33,7 +33,10 @@
     tooltip.show = true;
     tooltip.x = e.offsetX;
     tooltip.y = e.offsetY;
-    tooltip.content = [`${dot.countryName}`, `${dot.year}: ${dot.value.toFixed(2)}%`];
+    tooltip.content = [
+      `${dot.countryName}`,
+      `${dot.year}: ${dot.value.toFixed(2)}%`,
+    ];
     tooltip = tooltip;
   };
 
@@ -70,17 +73,20 @@
     </g>
     <g class="chart__dots" transform={`translate(${padding.l}, ${padding.t})`}>
       {#each dots as dot}
-        <circle cx={dot.cx} cy={dot.cy} {r}
-        on:mouseenter={(e) => dotEnter(e, dot)}
-        on:mouseleave={() => dotLeave(dot)}
-        class:muted={dot.muted}
-        class:hovered={dot.hovered}
+        <circle
+          cx={dot.cx}
+          cy={dot.cy}
+          {r}
+          on:mouseenter={(e) => dotEnter(e, dot)}
+          on:mouseleave={() => dotLeave(dot)}
+          class:muted={dot.muted}
+          class:hovered={dot.hovered}
         />
       {/each}
     </g>
   </g>
 
-  <BaseChartTooltip slot="tooltip" {tooltip} />
+  <BaseChartTooltip slot="tooltip" {tooltip} chartWidth={w} />
 </BaseChart>
 
 <style>

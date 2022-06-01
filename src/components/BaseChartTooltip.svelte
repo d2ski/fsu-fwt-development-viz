@@ -1,15 +1,29 @@
 <script>
   export let tooltip;
+  export let chartWidth = 400;
 
-  const offX = -115;
-  const offY = -30;
+  const offXLeft = -25;
+  const offXRight = -95;
+  const offYLeft = 45;
+  const offYRight = -30;
+
+  let tooltipWidth;
+  $: translateX = tooltip.x + offXLeft;
+  $: translateY = tooltip.y + offYLeft;
+
+  $: if(tooltip.x + offXLeft + tooltipWidth > chartWidth) {
+    translateX = tooltip.x + offXRight;
+    translateY = tooltip.y + offYRight;
+  }
+
 </script>
 
 {#if tooltip.show}
   <div
+    bind:clientWidth={tooltipWidth}
     class="chart__tooltip"
-    style:transform={`translate(${tooltip.x + offX}px, ${tooltip.y + offY}px)`}
-  >
+    style:transform={`translate(${translateX}px, ${translateY}px)`}
+  > 
     {#each tooltip.content as paragraph}
       <p class="chart__tooltip__text">{paragraph}</p>
     {/each}
