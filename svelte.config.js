@@ -1,13 +1,18 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from "@sveltejs/adapter-static";
 import path from "path";
 import svg from "vite-plugin-svgstring";
+
+const dev = process.env.NODE_ENV === "development";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+            pages: "docs",
+            assets: "docs"
+        }),
 		paths: {
-			base: "",
+			base: dev ? "" : "/fsu-fwt-economic-development",
 		},
 		vite: {
 			resolve: {
