@@ -27,6 +27,9 @@ const config = {
 				}
 			},
 			plugins: [svg()],
+		},
+		prerender: {
+			default: true,
 		}
 	}
 };
