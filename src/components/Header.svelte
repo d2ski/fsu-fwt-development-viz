@@ -121,7 +121,7 @@
   }
 
   .header__cover {
-    background-image: url(cover.jpg);
+    background-image: url(/cover.jpg);
     background-size: cover;
     background-position: top;
     height: 50vh;
