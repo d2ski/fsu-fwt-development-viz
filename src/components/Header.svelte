@@ -1,4 +1,5 @@
 <script>
+  import { base } from "$app/paths";
   import { fade } from "svelte/transition";
   import logo from "$svg/logo.svg";
   import {showSideMenu} from "$stores/sideMenu.js";
@@ -12,6 +13,8 @@
     window.document.body.classList.toggle('no-scroll');
     window.document.body.style.paddingRight = `${scrollBarWidth}px`;
   }
+
+  const srcCover = `${base}/cover.jpg`;
 </script>
 
 <header class="header">
@@ -29,7 +32,7 @@
     </div>
   </div>
 
-  <div class="header__cover">
+  <div class="header__cover" style="background-image: url({srcCover});">
     <div class="header__cover__text-box">
       <h1>
         Economic development of the former USSR and the Warsaw Pact countries
@@ -121,7 +124,7 @@
   }
 
   .header__cover {
-    background-image: url(/cover.jpg);
+    /* background-image: url(/cover.jpg); */
     background-size: cover;
     background-position: top;
     height: 50vh;
