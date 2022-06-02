@@ -103,7 +103,7 @@
   </h2>
 
   <div
-    class="section__charts section-scroll-h"
+    class="section__charts"
     use:viewport
     on:enterViewport={() => (isInView = true)}
     on:exitViewport={() => (isInView = false)}
@@ -119,6 +119,7 @@
       {fmtValueStr}
       {referenceLine}
       title="Former USSR except Baltic states"
+      note="Sources: World Bank, Gapminder.org"
       chartID="GdpChartFSU"
       --line-color="#e0e0e0"
       --line-color-active="#800000"
@@ -165,7 +166,8 @@
       --label-color-active="#212121"
       --label-color-reference="#212121"
     />
-
     <IconHScroll {isInView} />
   </div>
+
+
 </section>

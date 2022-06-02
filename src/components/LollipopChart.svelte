@@ -10,12 +10,13 @@
 
   export let ticksX;
   export let title = "";
+  export let note = "";
   export let tabTitle = "";
 
   export let markSize = 4;
 </script>
 
-<BaseChart {w} {h} {padding} {ticksX} {title} {chartID}>
+<BaseChart {w} {h} {padding} {ticksX} {title} {note} {chartID}>
   <g slot="chart">
     <g
       class="chart__domain"

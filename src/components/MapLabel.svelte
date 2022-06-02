@@ -8,8 +8,6 @@
 
   const [cx, cy] = path.centroid(rec);
   const [scx = 0, scy = 0] = shift;
-
-  console.log(shift);
 </script>
 
 <text x={cx + scx} y={cy + scy} transform="rotate({-rotate})" transition:fade={{duration: 1000}}

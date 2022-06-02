@@ -80,10 +80,12 @@
 </script>
 
 <section>
-  <h2 class="section__header">GDP annual growth</h2>
+  <h2 class="section__header">GDP annual growth,
+    <span class="section__subheader">average (<div class="mark-line"></div>) and each country's (<div class="mark-dot"></div>) </span>
+  </h2>
 
   <div
-    class="section__charts section-scroll-h"
+    class="section__charts"
     use:viewport
     on:enterViewport={() => (isInView = true)}
     on:exitViewport={() => (isInView = false)}
@@ -100,6 +102,7 @@
       {zeroY}
       hoverKey="countryCode"
       title="Former USSR except Baltic states"
+      note="Sources: World Bank, Gapminder.org"
       chartID="gdpGrowthChartFSU"
       --dot-color="#800000"
       --line-color="#800000"
@@ -150,3 +153,21 @@
     <IconHScroll {isInView} />
   </div>
 </section>
+
+<style>
+  div.mark-dot {
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    background-color: #212121;
+    border-radius: 5px;
+  }
+
+  div.mark-line {
+    vertical-align: middle;
+    display: inline-block;
+    height: 3px;
+    width: 15px;
+    background-color: #212121;
+  }
+</style>

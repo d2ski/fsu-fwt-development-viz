@@ -113,7 +113,7 @@
   </div>
 
   <div
-    class="section__charts section-scroll-h"
+    class="section__charts"
     use:viewport
     on:enterViewport={() => (isInView = true)}
     on:exitViewport={() => (isInView = false)}
@@ -130,6 +130,7 @@
       {referenceLine}
       hoverKey="countryCode"
       title="Former USSR except Baltic states"
+      note="Source: World Bank"
       chartID="lifeExpChartFSU"
       --line-color="#800000"
       --line-color-muted="#e0e0e0"

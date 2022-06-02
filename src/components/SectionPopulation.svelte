@@ -57,7 +57,7 @@
     </p>
   </div>
 
-  <div class="section__charts section-scroll-h">
+  <div class="section__charts">
     <LollipopChart
       {lines}
       {w}
@@ -66,6 +66,7 @@
       {ticksX}
       markSize="4"
       title="Population % change, 1991-2020"
+      note="Source: World Bank"
       tabTitle="Population in 2020"
       chartID="popChgPctChart"
     />

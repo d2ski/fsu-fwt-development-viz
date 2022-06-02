@@ -12,6 +12,7 @@
   export let ticksX;
   export let ticksY;
   export let title = "";
+  export let note = "";
   export let hoverKey = undefined;
 
   export let highlights = [];
@@ -42,7 +43,7 @@
     tooltip.x = e.offsetX;
     tooltip.y = e.offsetY;
     tooltip.content = [
-      `${line.valueStart.toFixed(1)} 🠒 ${line.valueEnd.toFixed(1)} yrs`,
+      `${line.valueStart.toFixed(1)} ${String.fromCodePoint(8594)} ${line.valueEnd.toFixed(1)} yrs`,
     ];
     tooltip = tooltip;
   };
@@ -64,7 +65,7 @@
     line?.[referenceLine.key] === referenceLine.value;
 </script>
 
-<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
+<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {note} {chartID}>
   <g slot="chart">
     <g
       class="chart__highlights"

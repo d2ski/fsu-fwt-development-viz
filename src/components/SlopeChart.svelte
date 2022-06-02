@@ -13,6 +13,7 @@
   export let ticksX;
   export let ticksY;
   export let title = "";
+  export let note = "";
   export let fmtValueStr;
   export let referenceLine = undefined;
 
@@ -31,7 +32,7 @@
     tooltip.x = e.detail.mouseX;
     tooltip.y = e.detail.mouseY;
     tooltip.content = [
-      `${fmtValueStr(e.detail.value1)} 🠒 ${fmtValueStr(e.detail.value2)}`,
+      `${fmtValueStr(e.detail.value1)} ${String.fromCodePoint(8594)} ${fmtValueStr(e.detail.value2)}`,
       `${e.detail.pctChange.toFixed(1)}%`,
     ];
     tooltip = tooltip;
@@ -43,7 +44,7 @@
   };
 </script>
 
-<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
+<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {note} {chartID}>
   <defs slot="markers">
     <SlopeChartMarker id={`${chartID}Dot`} size="3" fill="--line-color" />
     <SlopeChartMarker

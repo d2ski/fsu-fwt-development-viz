@@ -55,10 +55,13 @@ span.section__subheader {
   max-width: 95%;
 }
 
-.section-scroll-h {
-  overflow: auto;
+.section__charts {
+  overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
-  padding: 0 1rem 2rem 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 section p {

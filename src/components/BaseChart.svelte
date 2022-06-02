@@ -7,7 +7,8 @@
 
   export let ticksX = [];
   export let ticksY = [];
-  export let title = "";
+  export let title;
+  export let note;
 
   const xTicksSize = 7;
   const yTicksSize = 7;
@@ -49,12 +50,14 @@
   </svg>
 
   <slot name="tooltip" />
+  <div class="chart__note">{note}</div>
 </figure>
 
 <style>
   .chart {
     position: relative;
     display: inline-block;
+    vertical-align:top;
   }
 
   .chart__title {
@@ -62,6 +65,17 @@
     font-weight: 500;
     text-align: center;
     color: #212121;
+  }
+
+  .chart__note {
+    display: block;
+    font-size: 1.15rem;
+    line-height: 1.15rem;
+    height: 1.15rem;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 1rem;
+    color: #757575;
   }
 
   .chart__x-axis line {

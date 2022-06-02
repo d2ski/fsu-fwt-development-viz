@@ -15,6 +15,7 @@
   export let ticksX;
   export let ticksY;
   export let title = "";
+  export let note = "";
   export let hoverKey = undefined;
 
   let tooltip = { show: false, x: 0, y: 0, content: [""] };
@@ -54,7 +55,7 @@
   };
 </script>
 
-<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {chartID}>
+<BaseChart {w} {h} {padding} {ticksX} {ticksY} {title} {note} {chartID}>
   <g slot="chart">
     <g
       class="chart__domain"
